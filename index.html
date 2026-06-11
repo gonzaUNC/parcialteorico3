@@ -9,19 +9,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0d0f14;
-    --surface: #13161e;
-    --surface2: #1a1e28;
-    --border: #252a37;
-    --text: #e8eaf0;
-    --muted: #7b829a;
-    --accent1: #6c8fff; /* azul eléctrico */
-    --accent2: #b47dff; /* violeta */
-    --accent3: #4dd9ac; /* verde menta */
-    --accent4: #ff8c5a; /* naranja */
-    --accent5: #ff5e8e; /* rosa */
-    --glow1: rgba(108,143,255,0.15);
-    --glow2: rgba(180,125,255,0.12);
+    /* Tema Boca Juniors - Azul y Oro */
+    --bg: #020e21; /* Azul noche profundo */
+    --surface: #041c3d; /* Azul oscuro institucional */
+    --surface2: #082c5e; /* Azul intermedio */
+    --border: #133c70; /* Borde azulado */
+    --text: #e6f0fa; /* Texto claro */
+    --muted: #7d9ec4; /* Texto secundario gris azulado */
+    
+    --accent1: #FDB714; /* Oro Boca principal */
+    --accent2: #FFCC00; /* Amarillo brillante */
+    --accent3: #4ea0ff; /* Azul claro (para legibilidad y contraste) */
+    --accent4: #D49A11; /* Oro oscuro */
+    --accent5: #1b64b8; /* Azul brillante alternativo */
+    
+    --glow1: rgba(253, 183, 20, 0.15); /* Brillo oro */
+    --glow2: rgba(78, 160, 255, 0.12); /* Brillo azul claro */
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -114,7 +117,7 @@
 
   .nav-link:hover, .nav-link.active {
     color: var(--text);
-    background: rgba(108,143,255,0.07);
+    background: rgba(253, 183, 20, 0.07);
     border-left-color: var(--accent1);
   }
 
@@ -280,7 +283,7 @@
 
   /* ─── CODE BLOCKS ─── */
   .code-block {
-    background: #0a0c11;
+    background: #010814;
     border: 1px solid var(--border);
     border-radius: 10px;
     padding: 20px 24px;
@@ -291,7 +294,7 @@
   .code-block pre {
     font-family: 'Space Mono', monospace;
     font-size: 12px;
-    color: #c9d1e8;
+    color: #c2d6eb;
     line-height: 1.8;
     white-space: pre;
   }
@@ -299,7 +302,7 @@
   .code-block .kw { color: var(--accent2); }
   .code-block .fn { color: var(--accent1); }
   .code-block .str { color: var(--accent3); }
-  .code-block .cm { color: #4a5068; }
+  .code-block .cm { color: #3e5b80; }
   .code-block .num { color: var(--accent4); }
   .code-block .label {
     display: block;
@@ -339,7 +342,7 @@
   }
 
   .compare-table tr:last-child td { border-bottom: none; }
-  .compare-table tr:hover td { background: rgba(108,143,255,0.04); }
+  .compare-table tr:hover td { background: rgba(253, 183, 20, 0.04); }
 
   .compare-table .first-col {
     font-weight: 600;
@@ -378,22 +381,22 @@
   }
 
   .callout.info {
-    background: rgba(108,143,255,0.08);
-    border-color: rgba(108,143,255,0.25);
+    background: rgba(253, 183, 20, 0.08);
+    border-color: rgba(253, 183, 20, 0.25);
   }
-  .callout.info .callout-body p { color: #8ba4ff; }
+  .callout.info .callout-body p { color: #f7ce76; }
 
   .callout.tip {
-    background: rgba(77,217,172,0.08);
-    border-color: rgba(77,217,172,0.25);
+    background: rgba(78, 160, 255, 0.08);
+    border-color: rgba(78, 160, 255, 0.25);
   }
-  .callout.tip .callout-body p { color: #5ed4b0; }
+  .callout.tip .callout-body p { color: #8cbdff; }
 
   .callout.warn {
-    background: rgba(255,140,90,0.08);
-    border-color: rgba(255,140,90,0.25);
+    background: rgba(255, 204, 0, 0.08);
+    border-color: rgba(255, 204, 0, 0.25);
   }
-  .callout.warn .callout-body p { color: #ffa070; }
+  .callout.warn .callout-body p { color: #ffe066; }
 
   /* ─── GLOSARIO ─── */
   .glossary-grid {
@@ -515,7 +518,7 @@
     border-radius: 4px;
     background: var(--surface2);
     color: var(--accent3);
-    border: 1px solid rgba(77,217,172,0.2);
+    border: 1px solid rgba(78, 160, 255, 0.2);
   }
 
   /* ─── ACCORDION ─── */
@@ -601,11 +604,11 @@
     margin-bottom: 6px;
   }
 
-  .badge-blue { background: rgba(108,143,255,0.15); color: var(--accent1); }
-  .badge-purple { background: rgba(180,125,255,0.15); color: var(--accent2); }
-  .badge-green { background: rgba(77,217,172,0.15); color: var(--accent3); }
-  .badge-orange { background: rgba(255,140,90,0.15); color: var(--accent4); }
-  .badge-pink { background: rgba(255,94,142,0.15); color: var(--accent5); }
+  .badge-blue { background: rgba(253, 183, 20, 0.15); color: var(--accent1); }
+  .badge-purple { background: rgba(255, 204, 0, 0.15); color: var(--accent2); }
+  .badge-green { background: rgba(78, 160, 255, 0.15); color: var(--accent3); }
+  .badge-orange { background: rgba(212, 154, 17, 0.15); color: var(--accent4); }
+  .badge-pink { background: rgba(27, 100, 184, 0.15); color: var(--accent5); }
 
   h3.subsection {
     font-family: 'Lora', serif;
@@ -619,7 +622,7 @@
 
   p.body-text {
     font-size: 14px;
-    color: #aab0c8;
+    color: #a4bede;
     line-height: 1.8;
     margin-bottom: 16px;
     max-width: 680px;
@@ -689,7 +692,6 @@
 <div class="progress-bar" id="progress"></div>
 <button class="mobile-toggle" onclick="toggleSidebar()">☰</button>
 
-<!-- SIDEBAR -->
 <nav class="sidebar" id="sidebar">
   <div class="sidebar-brand">
     <div class="subtitle">FaMAF · UNC · 2020</div>
@@ -699,83 +701,80 @@
   <div class="nav-section">
     <div class="nav-label">Fundamentos</div>
     <a class="nav-link" onclick="showSection('intro')">
-      <span class="nav-dot" style="background:#6c8fff"></span> Introducción
+      <span class="nav-dot" style="background:var(--accent1)"></span> Introducción
     </a>
     <a class="nav-link" onclick="showSection('sintaxis')">
-      <span class="nav-dot" style="background:#6c8fff"></span> Sintaxis & Semántica
+      <span class="nav-dot" style="background:var(--accent1)"></span> Sintaxis & Semántica
     </a>
     <a class="nav-link" onclick="showSection('compilador')">
-      <span class="nav-dot" style="background:#6c8fff"></span> Compiladores
+      <span class="nav-dot" style="background:var(--accent1)"></span> Compiladores
     </a>
     <a class="nav-link" onclick="showSection('tipos')">
-      <span class="nav-dot" style="background:#6c8fff"></span> Tipos de Datos
+      <span class="nav-dot" style="background:var(--accent1)"></span> Tipos de Datos
     </a>
   </div>
 
   <div class="nav-section">
     <div class="nav-label">Control</div>
     <a class="nav-link" onclick="showSection('bloques')">
-      <span class="nav-dot" style="background:#b47dff"></span> Bloques & Activation Records
+      <span class="nav-dot" style="background:var(--accent2)"></span> Bloques & Activation Records
     </a>
     <a class="nav-link" onclick="showSection('parametros')">
-      <span class="nav-dot" style="background:#b47dff"></span> Pasaje de Parámetros
+      <span class="nav-dot" style="background:var(--accent2)"></span> Pasaje de Parámetros
     </a>
     <a class="nav-link" onclick="showSection('alcance')">
-      <span class="nav-dot" style="background:#b47dff"></span> Alcance Estático vs Dinámico
+      <span class="nav-dot" style="background:var(--accent2)"></span> Alcance Estático vs Dinámico
     </a>
     <a class="nav-link" onclick="showSection('altoorden')">
-      <span class="nav-dot" style="background:#b47dff"></span> Alto Orden & Clausuras
+      <span class="nav-dot" style="background:var(--accent2)"></span> Alto Orden & Clausuras
     </a>
   </div>
 
   <div class="nav-section">
     <div class="nav-label">Paradigmas</div>
     <a class="nav-link" onclick="showSection('paradigmas')">
-      <span class="nav-dot" style="background:#4dd9ac"></span> Resumen de Paradigmas
+      <span class="nav-dot" style="background:var(--accent3)"></span> Resumen de Paradigmas
     </a>
     <a class="nav-link" onclick="showSection('funcional')">
-      <span class="nav-dot" style="background:#4dd9ac"></span> Paradigma Funcional
+      <span class="nav-dot" style="background:var(--accent3)"></span> Paradigma Funcional
     </a>
     <a class="nav-link" onclick="showSection('oop')">
-      <span class="nav-dot" style="background:#4dd9ac"></span> Orientación a Objetos
+      <span class="nav-dot" style="background:var(--accent3)"></span> Orientación a Objetos
     </a>
     <a class="nav-link" onclick="showSection('logico')">
-      <span class="nav-dot" style="background:#ff8c5a"></span> Programación Lógica
+      <span class="nav-dot" style="background:var(--accent4)"></span> Programación Lógica
     </a>
     <a class="nav-link" onclick="showSection('prolog_ej')">
-      <span class="nav-dot" style="background:#ff8c5a"></span> Prolog: Ejercicio resuelto
+      <span class="nav-dot" style="background:var(--accent4)"></span> Prolog: Ejercicio resuelto
     </a>
     <a class="nav-link" onclick="showSection('concurrencia')">
-      <span class="nav-dot" style="background:#ff8c5a"></span> Concurrencia
+      <span class="nav-dot" style="background:var(--accent4)"></span> Concurrencia
     </a>
     <a class="nav-link" onclick="showSection('scripting')">
-      <span class="nav-dot" style="background:#ff8c5a"></span> Scripting
+      <span class="nav-dot" style="background:var(--accent4)"></span> Scripting
     </a>
     <a class="nav-link" onclick="showSection('frameworks')">
-      <span class="nav-dot" style="background:#ff5e8e"></span> Frameworks
+      <span class="nav-dot" style="background:var(--accent5)"></span> Frameworks
     </a>
     <a class="nav-link" onclick="showSection('defensiva')">
-      <span class="nav-dot" style="background:#ff5e8e"></span> Prog. Defensiva
+      <span class="nav-dot" style="background:var(--accent5)"></span> Prog. Defensiva
     </a>
   </div>
 
   <div class="nav-section">
     <div class="nav-label">Referencia</div>
     <a class="nav-link" onclick="showSection('glosario')">
-      <span class="nav-dot" style="background:#7b829a"></span> Glosario
+      <span class="nav-dot" style="background:var(--muted)"></span> Glosario
     </a>
   </div>
 </nav>
 
-<!-- MAIN -->
 <main class="main">
-  <!-- TOP BAR -->
   <div class="top-search">
     <span class="search-label">🔍 Buscar</span>
     <input type="text" id="globalSearch" placeholder="Buscar término, concepto..." oninput="handleGlobalSearch(this.value)">
   </div>
 
-  <!-- HERO -->
   <div class="hero" id="heroSection">
     <div class="hero-eyebrow">Guía de Estudio Interactiva</div>
     <h1>Paradigmas de la <em>Programación</em></h1>
@@ -791,9 +790,6 @@
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════ -->
-  <!-- SECCIÓN: INTRODUCCIÓN -->
-  <!-- ═══════════════════════════════════ -->
   <section class="section" id="intro">
     <div class="section-header">
       <div class="eyebrow" style="color:var(--accent1)">01 · Fundamentos</div>
@@ -830,9 +826,6 @@
     <p class="body-text">El apunte está fuertemente basado en <span class="highlight">Concepts in Programming Languages</span> de John Mitchell. Cada capítulo referencia secciones específicas del libro.</p>
   </section>
 
-  <!-- ═══════════════════════════════════ -->
-  <!-- SECCIÓN: SINTAXIS & SEMÁNTICA -->
-  <!-- ═══════════════════════════════════ -->
   <section class="section" id="sintaxis">
     <div class="section-header">
       <div class="eyebrow" style="color:var(--accent1)">02 · Fundamentos</div>
@@ -906,9 +899,6 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════ -->
-  <!-- SECCIÓN: COMPILADORES -->
-  <!-- ═══════════════════════════════════ -->
   <section class="section" id="compilador">
     <div class="section-header">
       <div class="eyebrow" style="color:var(--accent1)">03 · Implementación</div>
@@ -975,9 +965,6 @@ x := <span class="num">100</span>            <span class="cm">(* x ahora apunta 
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════ -->
-  <!-- SECCIÓN: TIPOS DE DATOS -->
-  <!-- ═══════════════════════════════════ -->
   <section class="section" id="tipos">
     <div class="section-header">
       <div class="eyebrow" style="color:var(--accent1)">04 · Tipos</div>
@@ -1031,9 +1018,6 @@ x := <span class="num">100</span>            <span class="cm">(* x ahora apunta 
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════ -->
-  <!-- SECCIÓN: BLOQUES & ACTIVATION RECORDS -->
-  <!-- ═══════════════════════════════════ -->
   <section class="section" id="bloques">
     <div class="section-header">
       <div class="eyebrow" style="color:var(--accent2)">05 · Estructura</div>
@@ -1117,9 +1101,6 @@ x := <span class="num">100</span>            <span class="cm">(* x ahora apunta 
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════ -->
-  <!-- SECCIÓN: PASAJE DE PARÁMETROS -->
-  <!-- ═══════════════════════════════════ -->
   <section class="section" id="parametros">
     <div class="section-header">
       <div class="eyebrow" style="color:var(--accent2)">06 · Control</div>
@@ -1190,9 +1171,6 @@ x := <span class="num">100</span>            <span class="cm">(* x ahora apunta 
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════ -->
-  <!-- SECCIÓN: ALCANCE -->
-  <!-- ═══════════════════════════════════ -->
   <section class="section" id="alcance">
     <div class="section-header">
       <div class="eyebrow" style="color:var(--accent2)">07 · Control</div>
@@ -1250,9 +1228,6 @@ x := <span class="num">100</span>            <span class="cm">(* x ahora apunta 
     </table>
   </section>
 
-  <!-- ═══════════════════════════════════ -->
-  <!-- SECCIÓN: ALTO ORDEN & CLAUSURAS -->
-  <!-- ═══════════════════════════════════ -->
   <section class="section" id="altoorden">
     <div class="section-header">
       <div class="eyebrow" style="color:var(--accent2)">08 · Control</div>
@@ -1297,7 +1272,7 @@ x := <span class="num">100</span>            <span class="cm">(* x ahora apunta 
       <div class="accordion-body">
         Una función es <strong>recursiva de cola</strong> si todas las llamadas recursivas son la última operación (no hay cálculo posterior al retorno). El compilador puede <strong>reutilizar el mismo activation record</strong>, convirtiendo recursión en iteración eficiente en memoria.
         <div style="margin-top:12px">
-          <code style="font-family:'Space Mono',monospace; font-size:11px; color:#c9d1e8">
+          <code style="font-family:'Space Mono',monospace; font-size:11px; color:#c2d6eb">
             fun factcola(n, a) = if n &lt;= 1 then a else factcola(n-1, n*a)
           </code>
         </div>
@@ -1306,9 +1281,6 @@ x := <span class="num">100</span>            <span class="cm">(* x ahora apunta 
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════ -->
-  <!-- SECCIÓN: PARADIGMAS RESUMEN -->
-  <!-- ═══════════════════════════════════ -->
   <section class="section" id="paradigmas">
     <div class="section-header">
       <div class="eyebrow" style="color:var(--accent3)">09 · Panorama</div>
@@ -1395,9 +1367,6 @@ x := <span class="num">100</span>            <span class="cm">(* x ahora apunta 
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════ -->
-  <!-- SECCIÓN: FUNCIONAL -->
-  <!-- ═══════════════════════════════════ -->
   <section class="section" id="funcional">
     <div class="section-header">
       <div class="eyebrow" style="color:var(--accent3)">10 · Paradigma</div>
@@ -1464,9 +1433,6 @@ x := <span class="num">100</span>            <span class="cm">(* x ahora apunta 
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════ -->
-  <!-- SECCIÓN: OOP -->
-  <!-- ═══════════════════════════════════ -->
   <section class="section" id="oop">
     <div class="section-header">
       <div class="eyebrow" style="color:var(--accent3)">11 · Paradigma</div>
@@ -1532,9 +1498,6 @@ x := <span class="num">100</span>            <span class="cm">(* x ahora apunta 
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════ -->
-  <!-- SECCIÓN: PROLOG / LÓGICO -->
-  <!-- ═══════════════════════════════════ -->
   <section class="section" id="logico">
     <div class="section-header">
       <div class="eyebrow" style="color:var(--accent4)">12 · Paradigma</div>
@@ -1650,9 +1613,6 @@ equipo(X, Y)       :- departamento(X, Y), not(jefe(X, Y)).
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════ -->
-  <!-- SECCIÓN: PROLOG EJERCICIO RESUELTO -->
-  <!-- ═══════════════════════════════════ -->
   <section class="section" id="prolog_ej">
     <div class="section-header">
       <div class="eyebrow" style="color:var(--accent4)">12b · Ejercicio Resuelto</div>
@@ -1688,7 +1648,7 @@ equipo(X, Y)       :- <span class="fn">departamento</span>(X, Y), <span class="k
     <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:32px;">
 
       <div style="display:flex; gap:16px; align-items:flex-start;">
-        <div style="min-width:36px; height:36px; border-radius:50%; background:var(--accent1); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:13px; font-weight:700; flex-shrink:0;">1</div>
+        <div style="min-width:36px; height:36px; border-radius:50%; background:var(--accent1); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:13px; font-weight:700; flex-shrink:0; color:#020e21;">1</div>
         <div style="background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:16px 20px; flex:1;">
           <div style="font-weight:600; color:var(--text); margin-bottom:6px;">Buscar definición de <code>equipo/2</code></div>
           <p style="font-size:13px; color:var(--muted); margin:0;">La única cláusula es: <code>equipo(X,Y) :- departamento(X,Y), not(jefe(X,Y)).</code><br>
@@ -1697,7 +1657,7 @@ equipo(X, Y)       :- <span class="fn">departamento</span>(X, Y), <span class="k
       </div>
 
       <div style="display:flex; gap:16px; align-items:flex-start;">
-        <div style="min-width:36px; height:36px; border-radius:50%; background:var(--accent2); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:13px; font-weight:700; flex-shrink:0;">2</div>
+        <div style="min-width:36px; height:36px; border-radius:50%; background:var(--accent2); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:13px; font-weight:700; flex-shrink:0; color:#020e21;">2</div>
         <div style="background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:16px 20px; flex:1;">
           <div style="font-weight:600; color:var(--text); margin-bottom:6px;">Resolver <code>departamento(elena, ana)</code></div>
           <p style="font-size:13px; color:var(--muted); margin:0;">Regla: <code>departamento(X,Y) :- especialista(X,A), especialista(Y,A).</code><br>
@@ -1708,7 +1668,7 @@ equipo(X, Y)       :- <span class="fn">departamento</span>(X, Y), <span class="k
       </div>
 
       <div style="display:flex; gap:16px; align-items:flex-start;">
-        <div style="min-width:36px; height:36px; border-radius:50%; background:var(--accent3); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:13px; font-weight:700; flex-shrink:0; color:#0d0f14;">3</div>
+        <div style="min-width:36px; height:36px; border-radius:50%; background:var(--accent3); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:13px; font-weight:700; flex-shrink:0; color:#020e21;">3</div>
         <div style="background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:16px 20px; flex:1;">
           <div style="font-weight:600; color:var(--text); margin-bottom:6px;">Resolver <code>not(jefe(elena, ana))</code></div>
           <p style="font-size:13px; color:var(--muted); margin:0;">Prolog intenta probar <code>jefe(elena, ana)</code> para luego negar el resultado.<br>
@@ -1718,18 +1678,18 @@ equipo(X, Y)       :- <span class="fn">departamento</span>(X, Y), <span class="k
       </div>
 
       <div style="display:flex; gap:16px; align-items:flex-start;">
-        <div style="min-width:36px; height:36px; border-radius:50%; background:var(--accent4); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:13px; font-weight:700; flex-shrink:0;">4</div>
+        <div style="min-width:36px; height:36px; border-radius:50%; background:var(--accent4); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:13px; font-weight:700; flex-shrink:0; color:#020e21;">4</div>
         <div style="background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:16px 20px; flex:1;">
           <div style="font-weight:600; color:var(--text); margin-bottom:6px;">Verificar <code>deriva(elena, ana)</code></div>
           <p style="font-size:13px; color:var(--muted); margin:0;">Los hechos de deriva son: <code>deriva(clara, ana)</code>, <code>deriva(clara, elena)</code>, <code>deriva(esteban, ana)</code>.<br>
           <strong>Ninguno tiene elena como primer argumento.</strong><br>
-          → <code>deriva(elena, ana)</code> es <strong style="color:var(--accent5)">FALSE</strong>.<br>
-          → <code>jefe(elena, ana)</code> es <strong style="color:var(--accent5)">FALSE</strong>.</p>
+          → <code>deriva(elena, ana)</code> es <strong style="color:#ff4d4d">FALSE</strong>.<br>
+          → <code>jefe(elena, ana)</code> es <strong style="color:#ff4d4d">FALSE</strong>.</p>
         </div>
       </div>
 
       <div style="display:flex; gap:16px; align-items:flex-start;">
-        <div style="min-width:36px; height:36px; border-radius:50%; background:var(--accent5); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:13px; font-weight:700; flex-shrink:0;">5</div>
+        <div style="min-width:36px; height:36px; border-radius:50%; background:var(--accent5); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:13px; font-weight:700; flex-shrink:0; color:#e6f0fa;">5</div>
         <div style="background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:16px 20px; flex:1;">
           <div style="font-weight:600; color:var(--text); margin-bottom:6px;">Resultado final</div>
           <p style="font-size:13px; color:var(--muted); margin:0;"><code>not(jefe(elena, ana))</code> = <code>not(FALSE)</code> = <strong style="color:var(--accent3)">TRUE</strong><br>
@@ -1760,7 +1720,7 @@ equipo(X, Y)       :- <span class="fn">departamento</span>(X, Y), <span class="k
       </tr>
       <tr>
         <td class="first-col">deriva(elena, ana)</td>
-        <td style="color:var(--accent5)">FALSE — no existe</td>
+        <td style="color:#ff4d4d">FALSE — no existe</td>
         <td>Se intenta para probar <code>jefe(elena,ana)</code>. No existe en la base → jefe falla → <code>not(jefe)</code> es true.</td>
       </tr>
     </table>
@@ -1780,9 +1740,6 @@ equipo(X, Y)       :- <span class="fn">departamento</span>(X, Y), <span class="k
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════ -->
-  <!-- SECCIÓN: CONCURRENCIA -->
-  <!-- ═══════════════════════════════════ -->
   <section class="section" id="concurrencia">
     <div class="section-header">
       <div class="eyebrow" style="color:var(--accent4)">13 · Paradigma</div>
@@ -1851,9 +1808,6 @@ equipo(X, Y)       :- <span class="fn">departamento</span>(X, Y), <span class="k
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════ -->
-  <!-- SECCIÓN: SCRIPTING -->
-  <!-- ═══════════════════════════════════ -->
   <section class="section" id="scripting">
     <div class="section-header">
       <div class="eyebrow" style="color:var(--accent4)">14 · Paradigma</div>
@@ -1916,9 +1870,6 @@ print $a + <span class="num">3</span> . <span class="str">"\n"</span>   <span cl
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════ -->
-  <!-- SECCIÓN: FRAMEWORKS -->
-  <!-- ═══════════════════════════════════ -->
   <section class="section" id="frameworks">
     <div class="section-header">
       <div class="eyebrow" style="color:var(--accent5)">15 · Herramientas</div>
@@ -1981,9 +1932,6 @@ print $a + <span class="num">3</span> . <span class="str">"\n"</span>   <span cl
     </table>
   </section>
 
-  <!-- ═══════════════════════════════════ -->
-  <!-- SECCIÓN: PROGRAMACIÓN DEFENSIVA -->
-  <!-- ═══════════════════════════════════ -->
   <section class="section" id="defensiva">
     <div class="section-header">
       <div class="eyebrow" style="color:var(--accent5)">16 · Calidad</div>
@@ -2039,9 +1987,6 @@ safe_path = os.path.<span class="fn">realpath</span>(user_input)
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════ -->
-  <!-- SECCIÓN: GLOSARIO -->
-  <!-- ═══════════════════════════════════ -->
   <section class="section" id="glosario">
     <div class="section-header">
       <div class="eyebrow" style="color:var(--muted)">Referencia</div>

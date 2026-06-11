@@ -3,34 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Parcial 3 - Paradigmas · Modo Boca</title>
+<title>Parcial 3 Paradigmas · Modo Boca Juniors</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    /* Tema Boca Juniors - Azul y Oro Extremo */
-    --bg: #001C4B; /* Azul oscuro institucional Boca */
-    --surface: #002868; /* Azul intermedio */
-    --surface2: #003385; /* Azul claro */
-    --border: #FDB714; /* Borde Oro puro */
-    --text: #e6f0fa; /* Texto claro */
-    --muted: #a6c4e5; /* Texto secundario gris azulado */
+    /* Tema Boca Juniors - Azul y Oro */
+    --bg: #001A4A; 
+    --surface: #002868; 
+    --surface2: #003380; 
+    --border: #FDB714; 
+    --text: #ffffff; 
     
-    --accent1: #FDB714; /* Oro Boca principal */
-    --accent2: #FFCC00; /* Amarillo brillante */
-    --accent3: #ffffff; /* Blanco para contraste */
-    --accent4: #e8a300; /* Oro oscuro */
-    --accent5: #0044b3; /* Azul brillante alternativo */
-    
-    --glow1: rgba(253, 183, 20, 0.2); /* Brillo oro */
-    --glow2: rgba(0, 40, 104, 0.4); /* Brillo azul oscuro */
+    --accent1: #FDB714; 
+    --accent2: #FFCC00; 
+    --glow1: rgba(253, 183, 20, 0.25); 
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
-
   body {
     background: var(--bg);
     color: var(--text);
@@ -38,658 +30,380 @@
     font-size: 16px;
     line-height: 1.7;
     overflow-x: hidden;
-    position: relative;
-  }
-
-  /* ─── ESCUDO DE BOCA WATERMARK ─── */
-  body::after {
-    content: '';
-    position: fixed;
-    top: 50%;
-    left: 60%;
-    transform: translate(-50%, -50%);
-    width: 800px;
-    height: 800px;
-    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Escudo_del_Club_Atl%C3%A9tico_Boca_Juniors_2012.svg/1024px-Escudo_del_Club_Atl%C3%A9tico_Boca_Juniors_2012.svg.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0.03;
-    pointer-events: none;
-    z-index: 0;
   }
 
   /* ─── SIDEBAR NAV ─── */
   .sidebar {
-    position: fixed;
-    top: 0; left: 0;
-    height: 100vh;
-    width: 280px;
+    position: fixed; top: 0; left: 0; height: 100vh; width: 260px;
     background: var(--surface);
-    border-right: 3px solid var(--accent1);
-    display: flex;
-    flex-direction: column;
-    padding: 32px 0;
-    z-index: 100;
-    overflow-y: auto;
-    transition: transform 0.3s ease;
+    border-right: 2px solid var(--border);
+    display: flex; flex-direction: column; padding: 32px 0;
+    z-index: 100; overflow-y: auto;
   }
-
+  
   .sidebar-brand {
-    padding: 0 24px 28px;
-    border-bottom: 1px solid rgba(253, 183, 20, 0.3);
+    padding: 0 24px 28px; border-bottom: 1px solid var(--border);
     text-align: center;
   }
-
-  .sidebar-brand h2 {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--accent1);
-    line-height: 1.2;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  /* URL pública para el escudo de Boca */
+  .sidebar-brand img { width: 70px; margin-bottom: 10px; }
+  .sidebar-brand .subtitle {
+    font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.15em;
+    color: var(--accent1); text-transform: uppercase; margin-bottom: 6px;
   }
-
-  .nav-section {
-    padding: 20px 0 4px;
-  }
-
+  .sidebar-brand h2 { font-size: 14px; font-weight: 600; color: var(--accent1); line-height: 1.4; }
+  
+  .nav-section { padding: 20px 0 4px; }
   .nav-label {
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    color: var(--accent2);
-    text-transform: uppercase;
-    padding: 0 24px 8px;
-    font-weight: bold;
+    font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.18em;
+    color: var(--accent2); text-transform: uppercase; padding: 0 24px 8px; font-weight: bold;
   }
-
   .nav-link {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 9px 24px;
-    color: var(--text);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    transition: all 0.2s;
-    border-left: 4px solid transparent;
-    cursor: pointer;
+    display: flex; align-items: center; gap: 10px; padding: 9px 24px;
+    color: var(--text); text-decoration: none; font-size: 13px; font-weight: 500;
+    transition: all 0.2s; border-left: 2px solid transparent; cursor: pointer;
   }
-
   .nav-link:hover, .nav-link.active {
-    color: var(--bg);
-    background: var(--accent1);
-    border-left-color: var(--accent3);
-    font-weight: bold;
+    color: var(--accent1); background: var(--glow1); border-left-color: var(--accent1);
   }
+  .nav-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; background: var(--accent1); }
 
   /* ─── MAIN CONTENT ─── */
-  .main {
-    margin-left: 280px;
-    min-height: 100vh;
-    position: relative;
-    z-index: 1;
-  }
-
-  /* ─── HERO ─── */
+  .main { margin-left: 260px; min-height: 100vh; position: relative; z-index: 1; }
   .hero {
     padding: 80px 64px 60px;
-    background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
-    border-bottom: 2px solid var(--accent1);
-    position: relative;
-    overflow: hidden;
+    background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 70%);
+    border-bottom: 2px solid var(--border); position: relative;
   }
-
-  .hero h1 {
-    font-family: 'Lora', serif;
-    font-size: clamp(32px, 4vw, 52px);
-    font-weight: 700;
-    line-height: 1.2;
-    color: var(--accent1);
-    max-width: 700px;
-    margin-bottom: 16px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  .hero-eyebrow {
+    font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.2em;
+    color: var(--accent1); text-transform: uppercase; margin-bottom: 16px;
   }
-
-  .hero p {
-    color: var(--text);
-    max-width: 500px;
-    font-size: 16px;
-    background: rgba(0,0,0,0.3);
-    padding: 10px;
-    border-radius: 5px;
-    border-left: 3px solid var(--accent1);
-  }
+  .hero h1 { font-family: 'Lora', serif; font-size: clamp(32px, 4vw, 52px); font-weight: 600; line-height: 1.2; color: var(--accent1); max-width: 600px; margin-bottom: 16px; }
+  .hero h1 em { color: var(--text); font-style: italic; }
+  .hero p { color: var(--text); max-width: 480px; font-size: 15px; }
 
   /* ─── SECTIONS ─── */
-  .section {
-    padding: 64px 64px;
-    border-bottom: 1px dashed var(--accent1);
-    display: none;
-  }
-
+  .section { padding: 64px 64px; border-bottom: 1px solid var(--border); display: none; }
   .section.visible { display: block; animation: fadeUp 0.4s ease; }
-
-  .section-header h2 {
-    font-family: 'Lora', serif;
-    font-size: 36px;
-    font-weight: 700;
-    color: var(--accent1);
-    text-transform: uppercase;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
-    margin-bottom: 30px;
+  .section-header { margin-bottom: 48px; }
+  .section-header .eyebrow {
+    font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.2em;
+    text-transform: uppercase; margin-bottom: 10px; color: var(--accent1);
   }
-
-  /* ─── CARDS ─── */
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    margin-bottom: 40px;
-  }
-
-  .card {
-    background: var(--surface2);
-    border: 2px solid var(--accent1);
-    border-radius: 8px;
-    padding: 24px;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 4px 4px 0px rgba(253, 183, 20, 0.3);
-  }
-
-  .card:hover { 
-    transform: translateY(-4px); 
-    box-shadow: 6px 6px 0px var(--accent1);
-  }
-
-  .card-tag {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--bg);
-    background: var(--accent1);
-    padding: 2px 8px;
-    border-radius: 4px;
-    display: inline-block;
-    margin-bottom: 10px;
-    font-weight: bold;
-  }
-
-  .card h3 {
-    font-size: 18px;
-    color: var(--accent1);
-    margin-bottom: 10px;
-  }
-
-  /* ─── CODE BLOCKS ─── */
+  .section-header h2 { font-family: 'Lora', serif; font-size: 32px; font-weight: 600; color: var(--text); border-bottom: 2px solid var(--accent1); padding-bottom: 10px; display: inline-block; }
+  
+  /* ─── CODE & TABLES ─── */
   .code-block {
-    background: #000b1f;
-    border: 1px solid var(--accent1);
-    border-left: 5px solid var(--accent1);
-    border-radius: 5px;
-    padding: 20px;
-    margin: 20px 0;
-    overflow-x: auto;
+    background: #000a1a; border: 1px solid var(--border); border-radius: 10px;
+    padding: 20px 24px; margin: 20px 0; overflow-x: auto;
   }
+  .code-block pre { font-family: 'Space Mono', monospace; font-size: 13px; color: #e6f0fa; line-height: 1.8; }
+  .code-block .cm { color: #7d9ec4; font-style: italic; }
+  
+  .compare-table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 24px 0; background: var(--surface2); border-radius: 8px; overflow: hidden; }
+  .compare-table th { padding: 12px 16px; text-align: left; border-bottom: 2px solid var(--accent1); color: var(--accent1); background: var(--surface); }
+  .compare-table td { padding: 12px 16px; color: var(--text); border-bottom: 1px solid var(--border); }
+  
+  .callout { border-radius: 10px; padding: 20px 24px; margin: 24px 0; display: flex; gap: 16px; background: rgba(253, 183, 20, 0.1); border: 1px solid var(--accent1); }
+  .callout h4 { color: var(--accent1); font-size: 16px; margin-bottom: 5px; }
 
-  .code-block pre {
-    font-family: 'Space Mono', monospace;
-    font-size: 13px;
-    color: #fff;
-    line-height: 1.6;
-  }
-
-  .kw { color: var(--accent1); font-weight: bold; }
-  .str { color: #8cbdff; }
-  .cm { color: #7d9ec4; font-style: italic; }
-
-  /* ─── TABLES ─── */
-  .compare-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: var(--surface2);
-    margin: 24px 0;
-    border: 1px solid var(--accent1);
-  }
-
-  .compare-table th {
-    background: var(--accent1);
-    color: var(--bg);
-    font-weight: bold;
-    padding: 12px;
-    text-align: left;
-  }
-
-  .compare-table td {
-    padding: 12px;
-    border-bottom: 1px solid rgba(253, 183, 20, 0.3);
-  }
-
-  /* ─── QUIZ WIDGET ─── */
-  .quiz-container {
-    background: var(--surface);
-    border: 3px solid var(--accent1);
-    border-radius: 10px;
-    padding: 30px;
-    margin-top: 30px;
-  }
-
-  .question-block {
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-  }
-
-  .question-text {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 15px;
-  }
-
-  .options-btn {
-    background: var(--surface2);
-    color: white;
-    border: 1px solid var(--accent1);
-    padding: 10px 20px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: 'Space Grotesk';
-    font-weight: bold;
-    transition: all 0.2s;
-  }
-
-  .options-btn:hover {
-    background: var(--accent1);
-    color: var(--bg);
-  }
-
-  .feedback-modal {
-    display: none;
-    position: fixed;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    background: var(--surface);
-    border: 4px solid var(--accent1);
-    padding: 30px;
-    border-radius: 15px;
-    z-index: 1000;
-    text-align: center;
-    box-shadow: 0 0 30px rgba(0,0,0,0.8);
-    width: 400px;
-  }
-
-  .feedback-modal img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    border: 2px solid var(--accent1);
-    margin-bottom: 15px;
-  }
-
-  .feedback-modal h3 {
-    color: var(--accent1);
-    margin-bottom: 10px;
-  }
-
-  .feedback-overlay {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.8);
-    z-index: 999;
-  }
-
-  /* ─── TREE PROLOG ─── */
-  .tree-node {
-    margin-left: 20px;
-    padding-left: 20px;
-    border-left: 2px solid var(--accent1);
-    margin-bottom: 10px;
-    position: relative;
-  }
-  .tree-node::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 12px;
-    width: 15px;
-    height: 2px;
-    background: var(--accent1);
-  }
-  .tree-success { color: #4CAF50; font-weight: bold; }
-  .tree-fail { color: #F44336; font-weight: bold; }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+  /* ─── GLOSARIO & QUIZ ─── */
+  .glossary-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+  .glossary-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+  .glossary-term { font-family: 'Space Mono', monospace; font-size: 14px; font-weight: 700; color: var(--accent2); margin-bottom: 8px; }
+  .glossary-def { font-size: 14px; color: var(--text); }
+  
+  .quiz-question { background: var(--surface2); border: 2px dashed var(--accent1); padding: 20px; border-radius: 8px; margin-bottom: 25px; }
+  .quiz-question p { font-size: 16px; font-weight: 600; margin-bottom: 15px; color: var(--accent1); }
+  .quiz-btn { background: var(--surface); color: var(--text); border: 1px solid var(--accent1); padding: 10px 15px; margin-right: 10px; border-radius: 4px; cursor: pointer; font-weight: 600; transition: 0.2s; }
+  .quiz-btn:hover { background: var(--accent1); color: var(--bg); }
+  .result-img-container { margin-top: 15px; }
+  .result-img-container img { height: 150px; border-radius: 8px; border: 2px solid var(--accent1); object-fit: cover;}
+  .result-text { font-weight: bold; margin-top: 10px; }
+  
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 </style>
 </head>
 <body>
 
 <nav class="sidebar" id="sidebar">
   <div class="sidebar-brand">
-    <h2>PARCIAL 3<br>MODO BOCA</h2>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Boca_Juniors_logo.svg/200px-Boca_Juniors_logo.svg.png" alt="Escudo Boca Juniors">
+    <div class="subtitle">FaMAF · UNC · 2026</div>
+    <h2>Parcial 3 Paradigmas<br>Modo Boca</h2>
   </div>
 
   <div class="nav-section">
-    <div class="nav-label">Temario Oficial</div>
-    <a class="nav-link" onclick="showSection('frameworks')">Frameworks</a>
-    <a class="nav-link" onclick="showSection('seguridad')">Seguridad y Defensiva</a>
-    <a class="nav-link" onclick="showSection('scripting')">Scripting</a>
-    <a class="nav-link" onclick="showSection('prolog')">Prolog (Resolución)</a>
-    <a class="nav-link" onclick="showSection('concurrencia')">Concurrencia</a>
+    <div class="nav-label">Temas Clave - Parcial 3</div>
+    <a class="nav-link" onclick="showSection('logico')"><span class="nav-dot"></span> 1. Prolog (Lógico)</a>
+    <a class="nav-link" onclick="showSection('frameworks')"><span class="nav-dot"></span> 2. Frameworks</a>
+    <a class="nav-link" onclick="showSection('concurrencia')"><span class="nav-dot"></span> 3. Concurrencia</a>
+    <a class="nav-link" onclick="showSection('defensiva')"><span class="nav-dot"></span> 4. Prog. Defensiva / Seguridad</a>
   </div>
 
   <div class="nav-section">
-    <div class="nav-label">Práctica</div>
-    <a class="nav-link" onclick="showSection('quiz')">Múltiple Choice Bosteril</a>
+    <div class="nav-label">Extras y Práctica</div>
+    <a class="nav-link" onclick="showSection('glosario')"><span class="nav-dot"></span> Glosario Bosterizado</a>
+    <a class="nav-link" onclick="showSection('quiz')"><span class="nav-dot"></span> Quiz Interactivo</a>
   </div>
 </nav>
 
 <main class="main">
-
   <div class="hero" id="heroSection">
-    <h1>Guía Definitiva Parcial 3</h1>
-    <p>Resumen filtrado 100% con los temas que te toman. Ni más, ni menos. A lo Boca.</p>
+    <div class="hero-eyebrow">¡A lo Boca! Guía de Estudio Interactiva</div>
+    <h1>Directo al <em>Parcial 3</em></h1>
+    <p>Sin vueltas. Solo Prolog, Frameworks, Concurrencia, Programación Defensiva y Seguridad. ¡Vamos por ese 10!</p>
   </div>
 
-  <section class="section visible" id="frameworks">
+  <section class="section" id="logico">
     <div class="section-header">
-      <h2>Frameworks</h2>
+      <div class="eyebrow">Tema 1</div>
+      <h2>Programación Lógica (Prolog)</h2>
+    </div>
+    <p>Prolog utiliza un motor de Inferencia que hace <strong>Backtracking</strong> automático para resolver los subobjetivos.</p>
+    
+    <div class="callout">
+      <div>
+        <h4>Ejercicio Base del Parcial</h4>
+        <p>Le preguntamos al intérprete si <code>equipo(elena, ana).</code> es True basándonos en el siguiente código.</p>
+      </div>
     </div>
     
-    <div class="cards">
-      <div class="card">
-        <div class="card-tag">Core Concept</div>
-        <h3>Inversión de Control (IoC)</h3>
-        <p>"No nos llames, nosotros te llamamos". Flask decide <strong>cuándo</strong> invocar tu código en respuesta a una request HTTP entrante. Vos no hacés el bucle infinito escuchando el puerto, el framework lo hace.</p>
-      </div>
-      <div class="card">
-        <div class="card-tag">Estructura</div>
-        <h3>Hot Spots</h3>
-        <p>Los puntos donde el desarrollador introduce la lógica específica de la aplicación. Ej: La función <code>crear_usuario()</code> decorada con <code>@app.route</code>. Es tu código personalizado.</p>
-      </div>
-      <div class="card">
-        <div class="card-tag">Estructura</div>
-        <h3>Frozen Spots</h3>
-        <p>El código interno del framework que NO modificás ni reimplementás. Ej: El mecanismo de ruteo de Flask (recibir HTTP, parsear URL y despachar).</p>
-      </div>
-    </div>
-
     <div class="code-block">
-      <pre>
-<span class="kw">from</span> flask <span class="kw">import</span> Flask, request, jsonify
+<pre><span class="cm">% Hechos y Reglas (Del Parcial)</span>
+especialista(elena, traumatologia).
+departamento(elena, ana).
+
+equipo(X, Y) :- departamento(X, Y).
+equipo(X, Y) :- departamento(Y, X).
+equipo(X, Y) :- deriva(X, Y).
+</pre>
+    </div>
+    
+    <table class="compare-table">
+      <tr>
+        <th>Subobjetivo para equipo(elena, ana)</th><th>Evaluación Backtracking</th>
+      </tr>
+      <tr><td>especialista(elena,traumatologia).</td><td><strong>No se comprueba</strong> (no es parte de la regla 'equipo')</td></tr>
+      <tr><td>departamento(elena,ana).</td><td><strong>True</strong> (Es el primer hecho que verifica la regla)</td></tr>
+      <tr><td>departamento(ana,elena).</td><td><strong>No se comprueba</strong> (porque el anterior ya dio True, cortando la búsqueda)</td></tr>
+      <tr><td>deriva(elena,ana).</td><td><strong>No se comprueba</strong></td></tr>
+    </table>
+  </section>
+
+  <section class="section" id="frameworks">
+    <div class="section-header">
+      <div class="eyebrow">Tema 2</div>
+      <h2>Frameworks e Inversión de Control</h2>
+    </div>
+    <p>Un framework provee la arquitectura base. Se rige por la <strong>Inversión de Control (IoC)</strong>: el framework llama a tu código mediante los Hotspots.</p>
+    
+    <div class="code-block">
+<pre><span class="cm"># Código Flask del Parcial</span>
+from flask import Flask, request, jsonify
 app = Flask(__name__)
 
-<span class="cm"># ESTO ES LÓGICA DE NEGOCIO (No es ni frozen ni hot spot per se, es tu librería)</span>
-<span class="kw">def</span> validar_usuario(datos): ...
+def validar_usuario(datos):
+    return "nombre" in datos and "email" in datos
 
-<span class="cm"># ESTO ES UN HOT SPOT (El framework va a llamar a esta función)</span>
-@app.route(<span class="str">"/usuarios"</span>, methods=[<span class="str">"POST"</span>])
-<span class="kw">def</span> crear_usuario():
+def guardar_en_base(datos):
+    return 42
+
+@app.route("/usuarios", methods=["POST"])
+def crear_usuario():
     datos = request.get_json()
-    <span class="kw">if not</span> validar_usuario(datos):
-        <span class="kw">return</span> jsonify({<span class="str">"error"</span>: <span class="str">"datos incompletos"</span>}), 400
-    <span class="kw">return</span> jsonify({<span class="str">"id"</span>: 1}), 201</pre>
-    </div>
-  </section>
-
-  <section class="section" id="seguridad">
-    <div class="section-header">
-      <h2>Programación Defensiva / Seguridad</h2>
-    </div>
-
-    <div class="cards">
-      <div class="card">
-        <div class="card-tag">Concepto Parcial</div>
-        <h3>Programación Ofensiva</h3>
-        <p>Fallar rápido y ruidosamente. Un <code>assert</code> aborta el programa inmediatamente si las condiciones no se dan, en lugar de intentar arreglarlo y arrastrar un error silencioso. El código del parcial ES programación ofensiva.</p>
-      </div>
-      <div class="card">
-        <div class="card-tag">Concepto Parcial</div>
-        <h3>Defensa por Contrato</h3>
-        <p>El uso de asserts al inicio de una función para validar precondiciones (ej: la lista no está vacía) antes de modificar cualquier estado.</p>
-      </div>
-      <div class="card">
-        <div class="card-tag">Diferencia Clave</div>
-        <h3>Guardas vs Excepciones</h3>
-        <p>Los <code>asserts</code> actúan como <strong>guardas</strong> (previenen la ejecución si no se cumple la condición). NO son equivalentes a mecanismos de manejo de excepciones (try/catch), que buscan recuperarse del error.</p>
-      </div>
-    </div>
-
-    <div class="code-block">
-      <pre>
-<span class="kw">def</span> calcular_promedio(valores):
-    <span class="cm"># Estos asserts son GUARDAS y DEFENSA POR CONTRATO (Precondiciones). </span>
-    <span class="cm"># Si fallan crashean el programa: PROGRAMACIÓN OFENSIVA.</span>
-    <span class="kw">assert</span> isinstance(valores, list), <span class="str">"valores debe ser una lista"</span>
-    <span class="kw">assert</span> len(valores) > 0, <span class="str">"la lista no puede estar vacía"</span>
-    <span class="kw">return</span> sum(valores) / len(valores)</pre>
-    </div>
-  </section>
-
-  <section class="section" id="scripting">
-    <div class="section-header">
-      <h2>Scripting</h2>
+    if not validar_usuario(datos):
+        return jsonify({"error": "datos incompletos"}), 400
+    id_nuevo = guardar_en_base(datos)
+    return jsonify({"id": id_nuevo}), 201
+</pre>
     </div>
 
     <table class="compare-table">
       <tr>
-        <th>Propiedad del lenguaje de Scripting</th>
-        <th>¿Aparece en el código del parcial? (Python)</th>
+        <th>Afirmación del Parcial</th><th>Verdadero / Falso</th>
       </tr>
-      <tr>
-        <td><strong>Las variables no requieren asignación explícita de tipo.</strong></td>
-        <td><strong>SÍ.</strong> En la línea <code>resultado = {}</code> o <code>datos = procesar_archivo(...)</code> no se declara <code>Dict datos = ...</code>.</td>
-      </tr>
-      <tr>
-        <td><strong>Seguridad de tipos</strong> (evita comportamientos inesperados)</td>
-        <td><strong>NO en este fragmento.</strong> Python permite meter strings y números en el mismo diccionario dinámicamente sin quejarse hasta que explota en runtime.</td>
-      </tr>
-      <tr>
-        <td><strong>Buena comunicación con el S.O.</strong></td>
-        <td><strong>NO en este fragmento.</strong> Abrir un archivo (`open()`) es estándar en cualquier lenguaje, no invoca comandos de consola (como haría `os.system()` o bash).</td>
-      </tr>
-      <tr>
-        <td><strong>Reglas de alcance explícitas</strong></td>
-        <td><strong>NO.</strong> En Python el scope es implícito (local a la función, no requiere usar palabras clave como `let` o `local` para declarar el ámbito).</td>
-      </tr>
+      <tr><td><code>crear_usuario</code> es un hotspot del framework.</td><td><strong>Verdadero</strong></td></tr>
+      <tr><td>El mecanismo de ruteo de Flask es un frozen spot.</td><td><strong>Verdadero</strong></td></tr>
+      <tr><td>El desarrollador invoca explícitamente a <code>crear_usuario</code>.</td><td><strong>Falso</strong> (Inversión de control)</td></tr>
+      <tr><td>Flask decide cuándo llamar a <code>crear_usuario</code>.</td><td><strong>Verdadero</strong></td></tr>
+      <tr><td><code>validar_usuario</code> y <code>guardar_en_base</code> son frozen spots.</td><td><strong>Falso</strong> (Son lógica pura del usuario)</td></tr>
     </table>
-  </section>
-
-  <section class="section" id="prolog">
-    <div class="section-header">
-      <h2>Prolog: Árbol de Backtracking</h2>
-    </div>
-    
-    <p style="margin-bottom:20px; font-size:18px;">Consulta: <code>?- equipo(elena, ana).</code></p>
-    
-    <div style="background:var(--surface2); padding: 20px; border-radius:8px; border:1px solid var(--accent1); font-family: 'Space Mono', monospace; font-size:14px;">
-      
-      <div><strong>1. Buscar regla:</strong> <code>equipo(elena, ana) :- departamento(elena, ana), not(jefe(elena, ana)).</code></div>
-      
-      <div class="tree-node">
-        <strong>2. Subobjetivo 1:</strong> Resolver <code>departamento(elena, ana)</code> <span class="tree-success">(TRUE)</span>
-        <div class="tree-node">
-          Regla: <code>departamento(elena, ana) :- especialista(elena, A), especialista(ana, A).</code>
-          <div class="tree-node">
-            - Busca <code>especialista(elena, A)</code> -> Encuentra hecho <code>especialista(elena, traumatologia)</code>. Unifica <span style="color:var(--accent1)">A = traumatologia</span>.
-          </div>
-          <div class="tree-node">
-            - Busca <code>especialista(ana, traumatologia)</code> -> Encuentra hecho. <span class="tree-success">Verdadero.</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="tree-node">
-        <strong>3. Subobjetivo 2:</strong> Resolver <code>not(jefe(elena, ana))</code> <span class="tree-success">(TRUE)</span>
-        <div class="tree-node" style="color:var(--muted);">
-          <em>Para resolver un NOT, Prolog intenta probar lo de adentro. Si falla, el NOT es verdadero (Negation as Failure).</em>
-        </div>
-        <div class="tree-node">
-          - Intenta probar <code>jefe(elena, ana)</code>
-          <div class="tree-node">
-            Regla: <code>jefe(elena, ana) :- deriva(elena, ana), departamento(elena, ana).</code>
-            <div class="tree-node">
-              - Busca <code>deriva(elena, ana)</code> -> Revisa los hechos. Solo existen derivaciones desde 'clara' y 'esteban'. NO hay desde 'elena'. <span class="tree-fail">FALLA.</span>
-            </div>
-          </div>
-          Como <code>deriva</code> falló, <code>jefe</code> falla.
-        </div>
-        Como <code>jefe(elena, ana)</code> falló, <code>not(jefe(elena, ana))</code> es <span class="tree-success">VERDADERO</span>.
-      </div>
-
-      <div style="margin-top:20px; border-top:1px dashed var(--accent1); padding-top:10px;">
-        <strong>Conclusión:</strong> Ambos subobjetivos de la regla `equipo` son verdaderos. <br>
-        <strong>Resultado final: <span class="tree-success">TRUE</span></strong>
-      </div>
-    </div>
   </section>
 
   <section class="section" id="concurrencia">
     <div class="section-header">
+      <div class="eyebrow">Tema 3</div>
       <h2>Concurrencia</h2>
     </div>
+    <p>La concurrencia permite ejecutar múltiples tareas de forma simultánea. En Scala podemos manejarla con Hilos (Threads) o con Futuros (Futures).</p>
 
-    <table class="compare-table">
-      <tr>
-        <th>Línea de Scala</th>
-        <th>Concepto Aplicado</th>
-        <th>Explicación Bosteril</th>
-      </tr>
-      <tr>
-        <td><code>val t = new Thread(() => ...)</code><br><code>t.start()</code></td>
-        <td><strong>Manejo explícito de procesos (hilos)</strong></td>
-        <td>Estás instanciando la clase Thread y dándole <code>start()</code> a mano. Vos controlás el ciclo de vida del hilo directamente a lo Picapedrero.</td>
-      </tr>
-      <tr>
-        <td><code>val f1 = Future { ... }</code></td>
-        <td><strong>Ejecución concurrente</strong></td>
-        <td>El bloque de código adentro del Future se manda a ejecutar de forma asíncrona en un pool de hilos (ExecutionContext) mientras el programa principal sigue de largo.</td>
-      </tr>
-      <tr>
-        <td><code>Future.sequence(List(f1, f2))</code></td>
-        <td><strong>Sincronización y Ej. Concurrente</strong></td>
-        <td>Combina múltiples futuros. Actúa como una barrera de <strong>Sincronización</strong> lógica (el Future resultante se completa cuando *ambos* f1 y f2 terminan).</td>
-      </tr>
-      <tr>
-        <td><code>t.join()</code></td>
-        <td><strong>Sincronización</strong></td>
-        <td>El hilo principal frena y espera a que el hilo <code>t</code> termine. Sincroniza la ejecución de dos ramas de control.</td>
-      </tr>
-      <tr>
-        <td><code>Await.result(...)</code></td>
-        <td><strong>Sincronización</strong></td>
-        <td>Bloquea el hilo actual hasta que el Future devuelva el valor (o pase el timeout de 5s).</td>
-      </tr>
-    </table>
+    <div class="code-block">
+<pre><span class="cm">// Código Scala del Parcial</span>
+import scala.concurrent.{Future, Await}
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.duration._
+
+var contador = 0
+
+// (A) Hilo Nativo
+val t = new Thread(() => {
+  Thread.sleep(100)
+  contador += 1
+})
+t.start()
+
+// (B) Futures (Alto Nivel)
+val f1 = Future { Thread.sleep(300); "resultado 1" }
+val f2 = Future { Thread.sleep(200); "resultado 2" }
+
+// (C) Composición
+val combinado = Future.sequence(List(f1, f2))
+
+// (D) Bloqueo y Espera
+t.join()
+val resultados = Await.result(combinado, 5.seconds)
+</pre>
+    </div>
+  </section>
+
+  <section class="section" id="defensiva">
+    <div class="section-header">
+      <div class="eyebrow">Tema 4</div>
+      <h2>Programación Defensiva y Seguridad</h2>
+    </div>
+    <p>La programación defensiva anticipa fallos. Se utilizan <strong>Precondiciones</strong> y <strong>Postcondiciones</strong> para validar que el programa funcione dentro de lo esperado.</p>
+
+    <div class="code-block">
+<pre><span class="cm"># Código de Seguridad del Parcial</span>
+def calcular_promedio(valores):
+    assert isinstance(valores, list), "valores debe ser una lista"
+    assert len(valores) > 0, "la lista no puede estar vacía"
+    assert all(isinstance(v, (int, float)) for v in valores), \
+        "todos los valores deben ser numéricos"
+    return sum(valores) / len(valores)
+</pre>
+    </div>
+    <div class="callout">
+      <div>
+        <h4>Atención con los Asserts</h4>
+        <p>Los <code>assert</code> se utilizan para identificar errores lógicos del desarrollador durante la fase de pruebas. <strong>No deben usarse para validar inputs de los usuarios en producción</strong>, ya que en Python pueden desactivarse globalmente ejecutando el script con la bandera <code>-O</code>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="glosario">
+    <div class="section-header">
+      <h2>Glosario Bosterizado</h2>
+    </div>
+    <div class="glossary-grid">
+      <div class="glossary-item">
+        <div class="glossary-term">Inversión de Control (IoC)</div>
+        <div class="glossary-def">El framework toma el control del flujo de la aplicación y llama a tu código cuando lo necesita.</div>
+      </div>
+      <div class="glossary-item">
+        <div class="glossary-term">Hotspot</div>
+        <div class="glossary-def">Lugar diseñado por el framework para que enchufes tu código personalizado (Ej: un decorador @app.route).</div>
+      </div>
+      <div class="glossary-item">
+        <div class="glossary-term">Frozen Spot</div>
+        <div class="glossary-def">El núcleo del framework que no podés tocar, la arquitectura ya resuelta.</div>
+      </div>
+      <div class="glossary-item">
+        <div class="glossary-term">Unificación</div>
+        <div class="glossary-def">En Prolog, el motor intenta hacer coincidir dos términos lógicos dándole valor a las variables.</div>
+      </div>
+      <div class="glossary-item">
+        <div class="glossary-term">Backtracking</div>
+        <div class="glossary-def">Prolog "vuelve sobre sus pasos" si una rama lógica falla, probando la siguiente alternativa.</div>
+      </div>
+      <div class="glossary-item">
+        <div class="glossary-term">Race Condition</div>
+        <div class="glossary-def">Fallo que ocurre cuando el resultado de la ejecución depende del orden impredecible en que se ejecutan los hilos.</div>
+      </div>
+    </div>
   </section>
 
   <section class="section" id="quiz">
     <div class="section-header">
-      <h2>Múltiple Choice Bosteril</h2>
+      <h2>Quiz Múltiple Choice</h2>
+      <p>Demostrá lo que sabés para el Parcial 3. Acierto = Festejo de Janson. Error = Reto de Cavani.</p>
     </div>
-    
-    <div class="quiz-container">
-      
-      <div class="question-block">
-        <div class="question-text">1. En Flask, `crear_usuario` es un hotspot: es el punto donde el desarrollador introduce la lógica específica de la app.</div>
-        <button class="options-btn" onclick="checkAnswer(true, true, 'Correcto. El hot spot es tu código, lo que vos customizás.')">Verdadero</button>
-        <button class="options-btn" onclick="checkAnswer(false, true, '¡Burro! El hotspot es justo la parte tuya, la que cambias.')">Falso</button>
-      </div>
 
-      <div class="question-block">
-        <div class="question-text">2. En Flask, el desarrollador decide cuándo se llama a `crear_usuario` invocándolo explícitamente cuando llega la request.</div>
-        <button class="options-btn" onclick="checkAnswer(false, false, '¡No! Principio de Inversión de Control (IoC). El framework decide cuándo llamarlo.')">Verdadero</button>
-        <button class="options-btn" onclick="checkAnswer(true, false, 'Exacto. Por la Inversión de Control (IoC), el framework (Flask) es el que dispara la llamada, no vos.')">Falso</button>
-      </div>
+    <div class="quiz-question">
+      <p>1. En Prolog, ¿cuándo se comprueba el subobjetivo `departamento(ana,elena)` al consultar `equipo(elena, ana)` en el ejemplo del parcial?</p>
+      <button class="quiz-btn" onclick="verificar(this, false)">Siempre, para asegurar todas las posibilidades.</button>
+      <button class="quiz-btn" onclick="verificar(this, true)">No se comprueba, porque el subobjetivo anterior (`departamento(elena,ana)`) ya dio True.</button>
+      <div class="result-img-container"></div>
+    </div>
 
-      <div class="question-block">
-        <div class="question-text">3. El uso de múltiples `asserts` para validar tipos antes de ejecutar la lógica es un ejemplo de programación ofensiva.</div>
-        <button class="options-btn" onclick="checkAnswer(true, true, 'Bien. Falla rápido y crashea el programa si no se cumple el contrato. Eso es ofensivo.')">Verdadero</button>
-        <button class="options-btn" onclick="checkAnswer(false, true, 'Mal. Es ofensiva porque no intenta arreglar el error (como haría un try-catch), sino que explota al instante.')">Falso</button>
-      </div>
+    <div class="quiz-question">
+      <p>2. En el código de Flask, ¿la función `validar_usuario` es un Hotspot?</p>
+      <button class="quiz-btn" onclick="verificar(this, true)">Falso. Es simplemente una función auxiliar de tu lógica de negocio.</button>
+      <button class="quiz-btn" onclick="verificar(this, false)">Verdadero. Todo lo que el programador escribe es un hotspot.</button>
+      <div class="result-img-container"></div>
+    </div>
 
-      <div class="question-block">
-        <div class="question-text">4. En Prolog, para demostrar `equipo(elena, ana)`, el motor NO comprueba `departamento(ana, elena)`.</div>
-        <button class="options-btn" onclick="checkAnswer(true, true, '¡Claro! Evalúa de izquierda a derecha según las variables bindeadas, no comprueba la inversa a menos que lo pidas.')">Verdadero</button>
-        <button class="options-btn" onclick="checkAnswer(false, true, 'Pifiaste. Prolog es estricto con el orden de las variables. Revisa `X, Y`, no `Y, X` a menos que sea una regla aparte.')">Falso</button>
-      </div>
-
-      <div class="question-block" style="border:none;">
-        <div class="question-text">5. Usar `t.join()` en programación concurrente es un mecanismo de Exclusión Mutua.</div>
-        <button class="options-btn" onclick="checkAnswer(false, false, '¡No pibe! Es Sincronización. Exclusión mutua son los Mutex o Semáforos para proteger variables.')">Verdadero</button>
-        <button class="options-btn" onclick="checkAnswer(true, false, 'Perfecto. Join es Sincronización (esperar a que termine). Exclusión mutua es para proteger estados compartidos.')">Falso</button>
-      </div>
-
+    <div class="quiz-question">
+      <p>3. ¿Para qué se usa correctamente la declaración `assert` en Python?</p>
+      <button class="quiz-btn" onclick="verificar(this, false)">Para validar los datos que envía el usuario desde la web.</button>
+      <button class="quiz-btn" onclick="verificar(this, true)">Para detectar errores lógicos del programador durante el desarrollo (caza de bugs).</button>
+      <div class="result-img-container"></div>
     </div>
   </section>
 
 </main>
 
-<div class="feedback-overlay" id="overlay" onclick="closeModal()"></div>
-<div class="feedback-modal" id="modal">
-  <h3 id="modal-title"></h3>
-  <img id="modal-img" src="" alt="Feedback">
-  <p id="modal-text" style="color:var(--text);"></p>
-  <button class="options-btn" style="margin-top:15px; width:100%;" onclick="closeModal()">Cerrar</button>
-</div>
-
 <script>
-  // ─── NAV LOGIC ───
-  const sections = document.querySelectorAll('.section');
-  const navLinks = document.querySelectorAll('.nav-link');
-
+  // Navegación de secciones
   function showSection(id) {
-    sections.forEach(s => s.classList.remove('visible'));
-    navLinks.forEach(l => l.classList.remove('active'));
-    document.getElementById(id).classList.add('visible');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
+    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
     
-    // Highlight sidebar
-    document.querySelectorAll('.nav-link').forEach(l => {
-      if (l.getAttribute('onclick')?.includes(id)) l.classList.add('active');
-    });
+    const targetSection = document.getElementById(id);
+    if(targetSection) targetSection.classList.add('visible');
+    
+    const activeLink = Array.from(document.querySelectorAll('.nav-link')).find(l => l.getAttribute('onclick').includes(id));
+    if(activeLink) activeLink.classList.add('active');
+    
+    window.scrollTo(0,0);
   }
 
-  showSection('frameworks');
+  // Inicializar mostrando el primer tema (Prolog) directamente
+  showSection('logico');
 
-  // ─── QUIZ LOGIC (JANSON / CAVANI) ───
-  // URLs de Wikipedia Commons para que no se caigan.
-  const imgJanson = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Lucas_Janson_2023.jpg/400px-Lucas_Janson_2023.jpg";
-  const imgCavani = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Edinson_Cavani_2018.jpg/400px-Edinson_Cavani_2018.jpg";
+  // Lógica del Quiz Múltiple Choice con URLs Externas de Google/Wikipedia
+  function verificar(btn, correcto) {
+    const contenedor = btn.parentElement.querySelector('.result-img-container');
+    contenedor.innerHTML = ""; 
+    
+    const img = document.createElement('img');
+    const text = document.createElement('div');
+    text.className = "result-text";
 
-  function checkAnswer(isCorrect, expectedTrue, explanation) {
-    const modal = document.getElementById('modal');
-    const overlay = document.getElementById('overlay');
-    const title = document.getElementById('modal-title');
-    const img = document.getElementById('modal-img');
-    const text = document.getElementById('modal-text');
+    // URLs que se cargan directo de Internet (¡No tenés que descargarlas!)
+    const urlJanson = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Lucas_Janson.jpg/320px-Lucas_Janson.jpg";
+    const urlCavani = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Edinson_Cavani_2018.jpg/320px-Edinson_Cavani_2018.jpg";
 
-    if (isCorrect) {
-      title.innerText = "¡GOOOOOL! Respuesta Correcta";
-      title.style.color = "#4CAF50"; // Verde OK
-      img.src = imgJanson;
+    if (correcto) {
+      btn.style.backgroundColor = "#28a745"; 
+      btn.style.borderColor = "#28a745";
+      btn.style.color = "#fff";
+      img.src = urlJanson;
+      text.innerHTML = "¡BOCAAA BOCAAA BOCAAAA! ¡Excelente respuesta! 🟦🟨🟦";
+      text.style.color = "#FDB714";
     } else {
-      title.innerText = "¡UHHHH! La tiraste afuera";
-      title.style.color = "#F44336"; // Rojo Fail
-      img.src = imgCavani;
+      btn.style.backgroundColor = "#dc3545";
+      btn.style.borderColor = "#dc3545";
+      btn.style.color = "#fff";
+      img.src = urlCavani;
+      text.innerHTML = "¡Error! Hay que estudiar más los apuntes, pibe. 🏹";
+      text.style.color = "#dc3545";
     }
-    
-    text.innerText = explanation;
-    
-    overlay.style.display = 'block';
-    modal.style.display = 'block';
-  }
 
-  function closeModal() {
-    document.getElementById('modal').style.display = 'none';
-    document.getElementById('overlay').style.display = 'none';
+    contenedor.appendChild(img);
+    contenedor.appendChild(text);
   }
 </script>
 </body>

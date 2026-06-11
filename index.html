@@ -3,28 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paradigmas de la Programación · FaMAF UNC</title>
+<title>Parcial 3 - Paradigmas · Modo Boca</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    /* Tema Boca Juniors - Azul y Oro */
-    --bg: #020e21; /* Azul noche profundo */
-    --surface: #041c3d; /* Azul oscuro institucional */
-    --surface2: #082c5e; /* Azul intermedio */
-    --border: #133c70; /* Borde azulado */
+    /* Tema Boca Juniors - Azul y Oro Extremo */
+    --bg: #001C4B; /* Azul oscuro institucional Boca */
+    --surface: #002868; /* Azul intermedio */
+    --surface2: #003385; /* Azul claro */
+    --border: #FDB714; /* Borde Oro puro */
     --text: #e6f0fa; /* Texto claro */
-    --muted: #7d9ec4; /* Texto secundario gris azulado */
+    --muted: #a6c4e5; /* Texto secundario gris azulado */
     
     --accent1: #FDB714; /* Oro Boca principal */
     --accent2: #FFCC00; /* Amarillo brillante */
-    --accent3: #4ea0ff; /* Azul claro (para legibilidad y contraste) */
-    --accent4: #D49A11; /* Oro oscuro */
-    --accent5: #1b64b8; /* Azul brillante alternativo */
+    --accent3: #ffffff; /* Blanco para contraste */
+    --accent4: #e8a300; /* Oro oscuro */
+    --accent5: #0044b3; /* Azul brillante alternativo */
     
-    --glow1: rgba(253, 183, 20, 0.15); /* Brillo oro */
-    --glow2: rgba(78, 160, 255, 0.12); /* Brillo azul claro */
+    --glow1: rgba(253, 183, 20, 0.2); /* Brillo oro */
+    --glow2: rgba(0, 40, 104, 0.4); /* Brillo azul oscuro */
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -38,17 +38,25 @@
     font-size: 16px;
     line-height: 1.7;
     overflow-x: hidden;
+    position: relative;
   }
 
-  /* ─── NOISE OVERLAY ─── */
-  body::before {
+  /* ─── ESCUDO DE BOCA WATERMARK ─── */
+  body::after {
     content: '';
     position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Escudo_del_Club_Atl%C3%A9tico_Boca_Juniors_2012.svg/1024px-Escudo_del_Club_Atl%C3%A9tico_Boca_Juniors_2012.svg.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.03;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.4;
   }
 
   /* ─── SIDEBAR NAV ─── */
@@ -56,9 +64,9 @@
     position: fixed;
     top: 0; left: 0;
     height: 100vh;
-    width: 260px;
+    width: 280px;
     background: var(--surface);
-    border-right: 1px solid var(--border);
+    border-right: 3px solid var(--accent1);
     display: flex;
     flex-direction: column;
     padding: 32px 0;
@@ -69,23 +77,17 @@
 
   .sidebar-brand {
     padding: 0 24px 28px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .sidebar-brand .subtitle {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    color: var(--accent1);
-    text-transform: uppercase;
-    margin-bottom: 6px;
+    border-bottom: 1px solid rgba(253, 183, 20, 0.3);
+    text-align: center;
   }
 
   .sidebar-brand h2 {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text);
-    line-height: 1.4;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent1);
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
 
   .nav-section {
@@ -94,11 +96,12 @@
 
   .nav-label {
     font-family: 'Space Mono', monospace;
-    font-size: 9px;
+    font-size: 11px;
     letter-spacing: 0.18em;
-    color: var(--muted);
+    color: var(--accent2);
     text-transform: uppercase;
     padding: 0 24px 8px;
+    font-weight: bold;
   }
 
   .nav-link {
@@ -106,30 +109,25 @@
     align-items: center;
     gap: 10px;
     padding: 9px 24px;
-    color: var(--muted);
+    color: var(--text);
     text-decoration: none;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 500;
     transition: all 0.2s;
-    border-left: 2px solid transparent;
+    border-left: 4px solid transparent;
     cursor: pointer;
   }
 
   .nav-link:hover, .nav-link.active {
-    color: var(--text);
-    background: rgba(253, 183, 20, 0.07);
-    border-left-color: var(--accent1);
-  }
-
-  .nav-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    flex-shrink: 0;
+    color: var(--bg);
+    background: var(--accent1);
+    border-left-color: var(--accent3);
+    font-weight: bold;
   }
 
   /* ─── MAIN CONTENT ─── */
   .main {
-    margin-left: 260px;
+    margin-left: 280px;
     min-height: 100vh;
     position: relative;
     z-index: 1;
@@ -138,93 +136,50 @@
   /* ─── HERO ─── */
   .hero {
     padding: 80px 64px 60px;
-    background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 70%);
-    border-bottom: 1px solid var(--border);
+    background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+    border-bottom: 2px solid var(--accent1);
     position: relative;
     overflow: hidden;
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    top: -120px; right: -80px;
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, var(--glow2), transparent 70%);
-    pointer-events: none;
-  }
-
-  .hero-eyebrow {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    color: var(--accent3);
-    text-transform: uppercase;
-    margin-bottom: 16px;
   }
 
   .hero h1 {
     font-family: 'Lora', serif;
     font-size: clamp(32px, 4vw, 52px);
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1.2;
-    color: var(--text);
-    max-width: 600px;
-    margin-bottom: 16px;
-  }
-
-  .hero h1 em {
     color: var(--accent1);
-    font-style: italic;
+    max-width: 700px;
+    margin-bottom: 16px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
   }
 
   .hero p {
-    color: var(--muted);
-    max-width: 480px;
-    font-size: 15px;
-  }
-
-  .hero-tags {
-    display: flex; flex-wrap: wrap; gap: 8px;
-    margin-top: 28px;
-  }
-
-  .tag {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    padding: 4px 12px;
-    border-radius: 20px;
-    border: 1px solid var(--border);
-    color: var(--muted);
-    letter-spacing: 0.05em;
+    color: var(--text);
+    max-width: 500px;
+    font-size: 16px;
+    background: rgba(0,0,0,0.3);
+    padding: 10px;
+    border-radius: 5px;
+    border-left: 3px solid var(--accent1);
   }
 
   /* ─── SECTIONS ─── */
   .section {
     padding: 64px 64px;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px dashed var(--accent1);
     display: none;
   }
 
-  .section.visible { display: block; }
-
-  .section-header {
-    margin-bottom: 48px;
-  }
-
-  .section-header .eyebrow {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
+  .section.visible { display: block; animation: fadeUp 0.4s ease; }
 
   .section-header h2 {
     font-family: 'Lora', serif;
-    font-size: 32px;
-    font-weight: 600;
-    line-height: 1.3;
-    color: var(--text);
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--accent1);
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    margin-bottom: 30px;
   }
 
   /* ─── CARDS ─── */
@@ -236,1941 +191,505 @@
   }
 
   .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
+    background: var(--surface2);
+    border: 2px solid var(--accent1);
+    border-radius: 8px;
     padding: 24px;
-    transition: border-color 0.2s, transform 0.2s;
-    position: relative;
-    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 4px 4px 0px rgba(253, 183, 20, 0.3);
   }
 
-  .card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    border-radius: 12px 12px 0 0;
-    opacity: 0;
-    transition: opacity 0.2s;
+  .card:hover { 
+    transform: translateY(-4px); 
+    box-shadow: 6px 6px 0px var(--accent1);
   }
-
-  .card:hover { transform: translateY(-2px); border-color: var(--accent1); }
-  .card:hover::before { opacity: 1; background: var(--accent1); }
 
   .card-tag {
     font-family: 'Space Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.15em;
+    font-size: 10px;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
+    color: var(--bg);
+    background: var(--accent1);
+    padding: 2px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  .card h3 {
+    font-size: 18px;
     color: var(--accent1);
     margin-bottom: 10px;
   }
 
-  .card h3 {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 10px;
-    line-height: 1.4;
-  }
-
-  .card p {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.65;
-  }
-
   /* ─── CODE BLOCKS ─── */
   .code-block {
-    background: #010814;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 20px 24px;
+    background: #000b1f;
+    border: 1px solid var(--accent1);
+    border-left: 5px solid var(--accent1);
+    border-radius: 5px;
+    padding: 20px;
     margin: 20px 0;
     overflow-x: auto;
   }
 
   .code-block pre {
     font-family: 'Space Mono', monospace;
-    font-size: 12px;
-    color: #c2d6eb;
-    line-height: 1.8;
-    white-space: pre;
-  }
-
-  .code-block .kw { color: var(--accent2); }
-  .code-block .fn { color: var(--accent1); }
-  .code-block .str { color: var(--accent3); }
-  .code-block .cm { color: #3e5b80; }
-  .code-block .num { color: var(--accent4); }
-  .code-block .label {
-    display: block;
-    font-size: 9px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 12px;
-    font-family: 'Space Grotesk', sans-serif;
-  }
-
-  /* ─── COMPARISON TABLE ─── */
-  .compare-table {
-    width: 100%;
-    border-collapse: collapse;
     font-size: 13px;
-    margin: 24px 0;
-  }
-
-  .compare-table th {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    padding: 12px 16px;
-    text-align: left;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .compare-table td {
-    padding: 12px 16px;
-    color: var(--text);
-    border-bottom: 1px solid var(--border);
-    vertical-align: top;
+    color: #fff;
     line-height: 1.6;
   }
 
-  .compare-table tr:last-child td { border-bottom: none; }
-  .compare-table tr:hover td { background: rgba(253, 183, 20, 0.04); }
+  .kw { color: var(--accent1); font-weight: bold; }
+  .str { color: #8cbdff; }
+  .cm { color: #7d9ec4; font-style: italic; }
 
-  .compare-table .first-col {
-    font-weight: 600;
-    color: var(--accent1);
-    white-space: nowrap;
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-  }
-
-  /* ─── CALLOUTS ─── */
-  .callout {
-    border-radius: 10px;
-    padding: 20px 24px;
-    margin: 24px 0;
-    display: flex;
-    gap: 16px;
-    border: 1px solid transparent;
-  }
-
-  .callout-icon {
-    font-size: 18px;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
-  .callout-body h4 {
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 6px;
-    color: var(--text);
-  }
-
-  .callout-body p {
-    font-size: 13px;
-    line-height: 1.65;
-  }
-
-  .callout.info {
-    background: rgba(253, 183, 20, 0.08);
-    border-color: rgba(253, 183, 20, 0.25);
-  }
-  .callout.info .callout-body p { color: #f7ce76; }
-
-  .callout.tip {
-    background: rgba(78, 160, 255, 0.08);
-    border-color: rgba(78, 160, 255, 0.25);
-  }
-  .callout.tip .callout-body p { color: #8cbdff; }
-
-  .callout.warn {
-    background: rgba(255, 204, 0, 0.08);
-    border-color: rgba(255, 204, 0, 0.25);
-  }
-  .callout.warn .callout-body p { color: #ffe066; }
-
-  /* ─── GLOSARIO ─── */
-  .glossary-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 16px;
-  }
-
-  .glossary-item {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 20px;
-    transition: border-color 0.2s;
-  }
-
-  .glossary-item:hover { border-color: var(--accent2); }
-
-  .glossary-term {
-    font-family: 'Space Mono', monospace;
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--accent2);
-    margin-bottom: 8px;
-    letter-spacing: 0.03em;
-  }
-
-  .glossary-def {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.65;
-  }
-
-  .glossary-search {
+  /* ─── TABLES ─── */
+  .compare-table {
     width: 100%;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 12px 16px;
-    color: var(--text);
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 14px;
-    margin-bottom: 24px;
-    outline: none;
-    transition: border-color 0.2s;
+    border-collapse: collapse;
+    background: var(--surface2);
+    margin: 24px 0;
+    border: 1px solid var(--accent1);
   }
 
-  .glossary-search:focus { border-color: var(--accent1); }
-  .glossary-search::placeholder { color: var(--muted); }
+  .compare-table th {
+    background: var(--accent1);
+    color: var(--bg);
+    font-weight: bold;
+    padding: 12px;
+    text-align: left;
+  }
 
-  /* ─── PARADIGMS TIMELINE ─── */
-  .paradigm-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
+  .compare-table td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(253, 183, 20, 0.3);
+  }
+
+  /* ─── QUIZ WIDGET ─── */
+  .quiz-container {
+    background: var(--surface);
+    border: 3px solid var(--accent1);
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 30px;
+  }
+
+  .question-block {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .question-text {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+
+  .options-btn {
+    background: var(--surface2);
+    color: white;
+    border: 1px solid var(--accent1);
+    padding: 10px 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Space Grotesk';
+    font-weight: bold;
+    transition: all 0.2s;
+  }
+
+  .options-btn:hover {
+    background: var(--accent1);
+    color: var(--bg);
+  }
+
+  .feedback-modal {
+    display: none;
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--surface);
+    border: 4px solid var(--accent1);
+    padding: 30px;
+    border-radius: 15px;
+    z-index: 1000;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0,0,0,0.8);
+    width: 400px;
+  }
+
+  .feedback-modal img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid var(--accent1);
+    margin-bottom: 15px;
+  }
+
+  .feedback-modal h3 {
+    color: var(--accent1);
+    margin-bottom: 10px;
+  }
+
+  .feedback-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 999;
+  }
+
+  /* ─── TREE PROLOG ─── */
+  .tree-node {
+    margin-left: 20px;
+    padding-left: 20px;
+    border-left: 2px solid var(--accent1);
+    margin-bottom: 10px;
     position: relative;
   }
-
-  .paradigm-list::before {
+  .tree-node::before {
     content: '';
     position: absolute;
-    left: 19px;
-    top: 0; bottom: 0;
-    width: 1px;
-    background: var(--border);
-  }
-
-  .paradigm-item {
-    display: flex;
-    gap: 24px;
-    padding: 0 0 36px;
-    position: relative;
-  }
-
-  .paradigm-dot {
-    width: 38px; height: 38px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    position: relative;
-    z-index: 1;
-    border: 2px solid var(--border);
-    background: var(--surface);
-  }
-
-  .paradigm-content {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px 24px;
-    flex: 1;
-  }
-
-  .paradigm-content h3 {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 8px;
-  }
-
-  .paradigm-content p {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.7;
-    margin-bottom: 12px;
-  }
-
-  .paradigm-langs {
-    display: flex; flex-wrap: wrap; gap: 6px;
-  }
-
-  .lang-badge {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    padding: 3px 10px;
-    border-radius: 4px;
-    background: var(--surface2);
-    color: var(--accent3);
-    border: 1px solid rgba(78, 160, 255, 0.2);
-  }
-
-  /* ─── ACCORDION ─── */
-  .accordion {
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 12px;
-  }
-
-  .accordion-header {
-    padding: 16px 20px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: var(--surface);
-    transition: background 0.2s;
-    user-select: none;
-  }
-
-  .accordion-header:hover { background: var(--surface2); }
-
-  .accordion-title {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text);
-  }
-
-  .accordion-arrow {
-    color: var(--muted);
-    font-size: 12px;
-    transition: transform 0.3s;
-  }
-
-  .accordion.open .accordion-arrow { transform: rotate(180deg); }
-
-  .accordion-body {
-    display: none;
-    padding: 20px;
-    background: var(--surface2);
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.75;
-    border-top: 1px solid var(--border);
-  }
-
-  .accordion.open .accordion-body { display: block; }
-
-  /* ─── PROGRESS / READING ─── */
-  .progress-bar {
-    position: fixed;
-    top: 0; left: 0;
+    left: 0; top: 12px;
+    width: 15px;
     height: 2px;
-    background: linear-gradient(90deg, var(--accent1), var(--accent2));
-    z-index: 200;
-    transition: width 0.1s;
+    background: var(--accent1);
   }
+  .tree-success { color: #4CAF50; font-weight: bold; }
+  .tree-fail { color: #F44336; font-weight: bold; }
 
-  /* ─── MOBILE TOGGLE ─── */
-  .mobile-toggle {
-    display: none;
-    position: fixed;
-    top: 16px; left: 16px;
-    z-index: 150;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    color: var(--text);
-    padding: 8px 12px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 18px;
-  }
-
-  .badge {
-    display: inline-block;
-    font-family: 'Space Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 3px 9px;
-    border-radius: 4px;
-    margin-bottom: 6px;
-  }
-
-  .badge-blue { background: rgba(253, 183, 20, 0.15); color: var(--accent1); }
-  .badge-purple { background: rgba(255, 204, 0, 0.15); color: var(--accent2); }
-  .badge-green { background: rgba(78, 160, 255, 0.15); color: var(--accent3); }
-  .badge-orange { background: rgba(212, 154, 17, 0.15); color: var(--accent4); }
-  .badge-pink { background: rgba(27, 100, 184, 0.15); color: var(--accent5); }
-
-  h3.subsection {
-    font-family: 'Lora', serif;
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--text);
-    margin: 36px 0 16px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  p.body-text {
-    font-size: 14px;
-    color: #a4bede;
-    line-height: 1.8;
-    margin-bottom: 16px;
-    max-width: 680px;
-  }
-
-  .highlight { color: var(--accent1); font-weight: 600; }
-
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 900px) {
-    .sidebar { transform: translateX(-100%); }
-    .sidebar.open { transform: translateX(0); }
-    .main { margin-left: 0; }
-    .section, .hero { padding: 48px 24px; }
-    .mobile-toggle { display: block; }
-  }
-
-  /* ─── ANIMATIONS ─── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(16px); }
     to { opacity: 1; transform: translateY(0); }
-  }
-
-  .section.visible { animation: fadeUp 0.4s ease; }
-
-  /* ─── SEARCH BAR ─── */
-  .top-search {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px 64px;
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .top-search input {
-    flex: 1;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 8px 14px;
-    color: var(--text);
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 13px;
-    outline: none;
-    max-width: 360px;
-    transition: border-color 0.2s;
-  }
-
-  .top-search input:focus { border-color: var(--accent1); }
-  .top-search input::placeholder { color: var(--muted); }
-
-  .top-search .search-label {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  @media (max-width: 900px) {
-    .top-search { padding: 12px 24px; margin-top: 52px; }
   }
 </style>
 </head>
 <body>
 
-<div class="progress-bar" id="progress"></div>
-<button class="mobile-toggle" onclick="toggleSidebar()">☰</button>
-
 <nav class="sidebar" id="sidebar">
   <div class="sidebar-brand">
-    <div class="subtitle">FaMAF · UNC · 2020</div>
-    <h2>Paradigmas de la<br>Programación</h2>
+    <h2>PARCIAL 3<br>MODO BOCA</h2>
   </div>
 
   <div class="nav-section">
-    <div class="nav-label">Fundamentos</div>
-    <a class="nav-link" onclick="showSection('intro')">
-      <span class="nav-dot" style="background:var(--accent1)"></span> Introducción
-    </a>
-    <a class="nav-link" onclick="showSection('sintaxis')">
-      <span class="nav-dot" style="background:var(--accent1)"></span> Sintaxis & Semántica
-    </a>
-    <a class="nav-link" onclick="showSection('compilador')">
-      <span class="nav-dot" style="background:var(--accent1)"></span> Compiladores
-    </a>
-    <a class="nav-link" onclick="showSection('tipos')">
-      <span class="nav-dot" style="background:var(--accent1)"></span> Tipos de Datos
-    </a>
+    <div class="nav-label">Temario Oficial</div>
+    <a class="nav-link" onclick="showSection('frameworks')">Frameworks</a>
+    <a class="nav-link" onclick="showSection('seguridad')">Seguridad y Defensiva</a>
+    <a class="nav-link" onclick="showSection('scripting')">Scripting</a>
+    <a class="nav-link" onclick="showSection('prolog')">Prolog (Resolución)</a>
+    <a class="nav-link" onclick="showSection('concurrencia')">Concurrencia</a>
   </div>
 
   <div class="nav-section">
-    <div class="nav-label">Control</div>
-    <a class="nav-link" onclick="showSection('bloques')">
-      <span class="nav-dot" style="background:var(--accent2)"></span> Bloques & Activation Records
-    </a>
-    <a class="nav-link" onclick="showSection('parametros')">
-      <span class="nav-dot" style="background:var(--accent2)"></span> Pasaje de Parámetros
-    </a>
-    <a class="nav-link" onclick="showSection('alcance')">
-      <span class="nav-dot" style="background:var(--accent2)"></span> Alcance Estático vs Dinámico
-    </a>
-    <a class="nav-link" onclick="showSection('altoorden')">
-      <span class="nav-dot" style="background:var(--accent2)"></span> Alto Orden & Clausuras
-    </a>
-  </div>
-
-  <div class="nav-section">
-    <div class="nav-label">Paradigmas</div>
-    <a class="nav-link" onclick="showSection('paradigmas')">
-      <span class="nav-dot" style="background:var(--accent3)"></span> Resumen de Paradigmas
-    </a>
-    <a class="nav-link" onclick="showSection('funcional')">
-      <span class="nav-dot" style="background:var(--accent3)"></span> Paradigma Funcional
-    </a>
-    <a class="nav-link" onclick="showSection('oop')">
-      <span class="nav-dot" style="background:var(--accent3)"></span> Orientación a Objetos
-    </a>
-    <a class="nav-link" onclick="showSection('logico')">
-      <span class="nav-dot" style="background:var(--accent4)"></span> Programación Lógica
-    </a>
-    <a class="nav-link" onclick="showSection('prolog_ej')">
-      <span class="nav-dot" style="background:var(--accent4)"></span> Prolog: Ejercicio resuelto
-    </a>
-    <a class="nav-link" onclick="showSection('concurrencia')">
-      <span class="nav-dot" style="background:var(--accent4)"></span> Concurrencia
-    </a>
-    <a class="nav-link" onclick="showSection('scripting')">
-      <span class="nav-dot" style="background:var(--accent4)"></span> Scripting
-    </a>
-    <a class="nav-link" onclick="showSection('frameworks')">
-      <span class="nav-dot" style="background:var(--accent5)"></span> Frameworks
-    </a>
-    <a class="nav-link" onclick="showSection('defensiva')">
-      <span class="nav-dot" style="background:var(--accent5)"></span> Prog. Defensiva
-    </a>
-  </div>
-
-  <div class="nav-section">
-    <div class="nav-label">Referencia</div>
-    <a class="nav-link" onclick="showSection('glosario')">
-      <span class="nav-dot" style="background:var(--muted)"></span> Glosario
-    </a>
+    <div class="nav-label">Práctica</div>
+    <a class="nav-link" onclick="showSection('quiz')">Múltiple Choice Bosteril</a>
   </div>
 </nav>
 
 <main class="main">
-  <div class="top-search">
-    <span class="search-label">🔍 Buscar</span>
-    <input type="text" id="globalSearch" placeholder="Buscar término, concepto..." oninput="handleGlobalSearch(this.value)">
-  </div>
 
   <div class="hero" id="heroSection">
-    <div class="hero-eyebrow">Guía de Estudio Interactiva</div>
-    <h1>Paradigmas de la <em>Programación</em></h1>
-    <p>Todo lo que necesitás repasar de camino a la facultad. Conceptos clave, ejemplos de código, comparativas y glosario.</p>
-    <div class="hero-tags">
-      <span class="tag">Mitchell 2020</span>
-      <span class="tag">LCC · FaMAF · UNC</span>
-      <span class="tag">Imperativo</span>
-      <span class="tag">Funcional</span>
-      <span class="tag">OOP</span>
-      <span class="tag">Lógico</span>
-      <span class="tag">Concurrente</span>
-    </div>
+    <h1>Guía Definitiva Parcial 3</h1>
+    <p>Resumen filtrado 100% con los temas que te toman. Ni más, ni menos. A lo Boca.</p>
   </div>
 
-  <section class="section" id="intro">
+  <section class="section visible" id="frameworks">
     <div class="section-header">
-      <div class="eyebrow" style="color:var(--accent1)">01 · Fundamentos</div>
-      <h2>Introducción & Motivación</h2>
+      <h2>Frameworks</h2>
+    </div>
+    
+    <div class="cards">
+      <div class="card">
+        <div class="card-tag">Core Concept</div>
+        <h3>Inversión de Control (IoC)</h3>
+        <p>"No nos llames, nosotros te llamamos". Flask decide <strong>cuándo</strong> invocar tu código en respuesta a una request HTTP entrante. Vos no hacés el bucle infinito escuchando el puerto, el framework lo hace.</p>
+      </div>
+      <div class="card">
+        <div class="card-tag">Estructura</div>
+        <h3>Hot Spots</h3>
+        <p>Los puntos donde el desarrollador introduce la lógica específica de la aplicación. Ej: La función <code>crear_usuario()</code> decorada con <code>@app.route</code>. Es tu código personalizado.</p>
+      </div>
+      <div class="card">
+        <div class="card-tag">Estructura</div>
+        <h3>Frozen Spots</h3>
+        <p>El código interno del framework que NO modificás ni reimplementás. Ej: El mecanismo de ruteo de Flask (recibir HTTP, parsear URL y despachar).</p>
+      </div>
+    </div>
+
+    <div class="code-block">
+      <pre>
+<span class="kw">from</span> flask <span class="kw">import</span> Flask, request, jsonify
+app = Flask(__name__)
+
+<span class="cm"># ESTO ES LÓGICA DE NEGOCIO (No es ni frozen ni hot spot per se, es tu librería)</span>
+<span class="kw">def</span> validar_usuario(datos): ...
+
+<span class="cm"># ESTO ES UN HOT SPOT (El framework va a llamar a esta función)</span>
+@app.route(<span class="str">"/usuarios"</span>, methods=[<span class="str">"POST"</span>])
+<span class="kw">def</span> crear_usuario():
+    datos = request.get_json()
+    <span class="kw">if not</span> validar_usuario(datos):
+        <span class="kw">return</span> jsonify({<span class="str">"error"</span>: <span class="str">"datos incompletos"</span>}), 400
+    <span class="kw">return</span> jsonify({<span class="str">"id"</span>: 1}), 201</pre>
+    </div>
+  </section>
+
+  <section class="section" id="seguridad">
+    <div class="section-header">
+      <h2>Programación Defensiva / Seguridad</h2>
     </div>
 
     <div class="cards">
       <div class="card">
-        <div class="card-tag" style="color:var(--accent3)">¿Qué estudiamos?</div>
-        <h3>Lenguajes de Programación</h3>
-        <p>Aprender conceptos y propiedades de los lenguajes de programación. También conocida como "Lenguajes de Programación" en otras instituciones.</p>
+        <div class="card-tag">Concepto Parcial</div>
+        <h3>Programación Ofensiva</h3>
+        <p>Fallar rápido y ruidosamente. Un <code>assert</code> aborta el programa inmediatamente si las condiciones no se dan, en lugar de intentar arreglarlo y arrastrar un error silencioso. El código del parcial ES programación ofensiva.</p>
       </div>
       <div class="card">
-        <div class="card-tag" style="color:var(--accent2)">¿Para qué sirve?</div>
-        <h3>Tomar decisiones informadas</h3>
-        <p>Analizar, entender y decidir sobre las fortalezas y desventajas de distintos lenguajes en diferentes contextos (eficiencia crítica, equipo sin experiencia, etc.).</p>
+        <div class="card-tag">Concepto Parcial</div>
+        <h3>Defensa por Contrato</h3>
+        <p>El uso de asserts al inicio de una función para validar precondiciones (ej: la lista no está vacía) antes de modificar cualquier estado.</p>
       </div>
       <div class="card">
-        <div class="card-tag" style="color:var(--accent4)">Preguntas clave</div>
-        <h3>Cuestiones fundamentales</h3>
-        <p>¿Qué puede hacer un lenguaje? ¿Cómo funciona? ¿Cómo comparar lenguajes? ¿Qué significa "el significado" de un programa?</p>
+        <div class="card-tag">Diferencia Clave</div>
+        <h3>Guardas vs Excepciones</h3>
+        <p>Los <code>asserts</code> actúan como <strong>guardas</strong> (previenen la ejecución si no se cumple la condición). NO son equivalentes a mecanismos de manejo de excepciones (try/catch), que buscan recuperarse del error.</p>
       </div>
     </div>
 
-    <div class="callout tip">
-      <div class="callout-icon">💡</div>
-      <div class="callout-body">
-        <h4>Ejemplo de decisión de diseño</h4>
-        <p>Para un proyecto con eficiencia crítica (dispositivos móviles, grandes volúmenes de datos) → elegir <strong>C</strong> que prioriza eficiencia. Si el equipo tiene poca experiencia → <strong>Python</strong> que previene errores humanos.</p>
-      </div>
-    </div>
-
-    <h3 class="subsection">Libro base del curso</h3>
-    <p class="body-text">El apunte está fuertemente basado en <span class="highlight">Concepts in Programming Languages</span> de John Mitchell. Cada capítulo referencia secciones específicas del libro.</p>
-  </section>
-
-  <section class="section" id="sintaxis">
-    <div class="section-header">
-      <div class="eyebrow" style="color:var(--accent1)">02 · Fundamentos</div>
-      <h2>Sintaxis & Semántica</h2>
-    </div>
-
-    <div class="cards">
-      <div class="card">
-        <div class="card-tag">Sintaxis</div>
-        <h3>La forma del lenguaje</h3>
-        <p>Describe <strong>qué se puede escribir legalmente</strong> en el lenguaje. Se formaliza con gramáticas independientes de contexto (EBNF).</p>
-      </div>
-      <div class="card">
-        <div class="card-tag" style="color:var(--accent2)">Semántica</div>
-        <h3>El significado del lenguaje</h3>
-        <p>Describe <strong>qué efectos tiene</strong> lo escrito en la máquina. Tipos: operacional, denotacional, lambda cálculo.</p>
-      </div>
-      <div class="card">
-        <div class="card-tag" style="color:var(--accent3)">EBNF</div>
-        <h3>Gramáticas formales</h3>
-        <p>Estándar de facto para gramáticas libres de contexto. No son Turing-completas, por eso necesitan análisis semántico adicional en el compilador.</p>
-      </div>
-    </div>
-
-    <h3 class="subsection">Gramática: Ejemplo clásico de expresiones</h3>
     <div class="code-block">
-      <pre><span class="label">Gramática EBNF — Expresiones aritméticas</span><span class="kw">&lt;expresion&gt;</span> → numero
-<span class="kw">&lt;expresion&gt;</span> → ( <span class="kw">&lt;expresion&gt;</span> )
-<span class="kw">&lt;expresion&gt;</span> → <span class="kw">&lt;expresion&gt;</span> + <span class="kw">&lt;expresion&gt;</span>
-<span class="kw">&lt;expresion&gt;</span> → <span class="kw">&lt;expresion&gt;</span> - <span class="kw">&lt;expresion&gt;</span>
-<span class="kw">&lt;expresion&gt;</span> → <span class="kw">&lt;expresion&gt;</span> * <span class="kw">&lt;expresion&gt;</span>
-<span class="kw">&lt;expresion&gt;</span> → <span class="kw">&lt;expresion&gt;</span> / <span class="kw">&lt;expresion&gt;</span></pre>
-    </div>
-
-    <div class="callout warn">
-      <div class="callout-icon">⚠️</div>
-      <div class="callout-body">
-        <h4>Limitación de gramáticas libres de contexto</h4>
-        <p>No pueden expresar fácilmente: que una variable sea declarada antes de usarse, ni asignación múltiple como <code>(foo, bar) = 1, 2</code> en Python. El compilador resuelve esto en el análisis semántico.</p>
-      </div>
-    </div>
-
-    <h3 class="subsection">Tipos de semántica</h3>
-    <table class="compare-table">
-      <tr>
-        <th>Tipo</th><th>Descripción</th><th>Referencia</th>
-      </tr>
-      <tr>
-        <td class="first-col">Operacional</td>
-        <td>Describe cómo cada paso del cálculo se lleva a cabo. Usa un modelo simplificado de la máquina. <strong>La más usada en este curso.</strong></td>
-        <td>Mitchell 4.1</td>
-      </tr>
-      <tr>
-        <td class="first-col">Lambda Cálculo</td>
-        <td>Formalización de Church. Primera semántica de LISP (McCarthy). Base del paradigma funcional.</td>
-        <td>Mitchell 4.2</td>
-      </tr>
-      <tr>
-        <td class="first-col">Denotacional</td>
-        <td>De Strachey & Scott. Mapea programas a funciones matemáticas. Muy formal y rigurosa.</td>
-        <td>Mitchell 4.3</td>
-      </tr>
-    </table>
-
-    <div class="callout info">
-      <div class="callout-icon">📐</div>
-      <div class="callout-body">
-        <h4>Tesis de Church-Turing</h4>
-        <p>Las funciones computables son exactamente las funciones que se pueden calcular usando un dispositivo mecánico dada tiempo y espacio ilimitados. Funciones <strong>no computables</strong> famosas: <em>Halting Problem</em>, <em>Complejidad de Kolmogorov</em>.</p>
-      </div>
+      <pre>
+<span class="kw">def</span> calcular_promedio(valores):
+    <span class="cm"># Estos asserts son GUARDAS y DEFENSA POR CONTRATO (Precondiciones). </span>
+    <span class="cm"># Si fallan crashean el programa: PROGRAMACIÓN OFENSIVA.</span>
+    <span class="kw">assert</span> isinstance(valores, list), <span class="str">"valores debe ser una lista"</span>
+    <span class="kw">assert</span> len(valores) > 0, <span class="str">"la lista no puede estar vacía"</span>
+    <span class="kw">return</span> sum(valores) / len(valores)</pre>
     </div>
   </section>
 
-  <section class="section" id="compilador">
+  <section class="section" id="scripting">
     <div class="section-header">
-      <div class="eyebrow" style="color:var(--accent1)">03 · Implementación</div>
-      <h2>Compiladores & Variables</h2>
+      <h2>Scripting</h2>
     </div>
-
-    <h3 class="subsection">Estructura de un compilador</h3>
-    <div class="cards">
-      <div class="card">
-        <div class="card-tag" style="color:var(--accent3)">Paso 1</div>
-        <h3>Análisis Léxico</h3>
-        <p>Tokeniza el código fuente. Convierte el stream de caracteres en tokens (palabras clave, identificadores, literales).</p>
-      </div>
-      <div class="card">
-        <div class="card-tag" style="color:var(--accent3)">Paso 2</div>
-        <h3>Análisis Sintáctico (Parser)</h3>
-        <p>Usa la gramática para construir el árbol de derivación (AST). Verifica que la forma del programa sea correcta.</p>
-      </div>
-      <div class="card">
-        <div class="card-tag" style="color:var(--accent3)">Paso 3</div>
-        <h3>Análisis Semántico</h3>
-        <p>Resuelve tipos, alcance, declaraciones previas. Lo que la gramática libre de contexto no puede capturar.</p>
-      </div>
-      <div class="card">
-        <div class="card-tag" style="color:var(--accent3)">Paso 4</div>
-        <h3>Generación de Código</h3>
-        <p>Traduce el AST a código máquina. Reemplaza los nombres simbólicos de variables con ubicaciones de memoria reales.</p>
-      </div>
-    </div>
-
-    <h3 class="subsection">Variables: L-valor y R-valor</h3>
-    <p class="body-text">Una variable tiene dos aspectos diferenciados que son clave para entender el pasaje de parámetros y el aliasing:</p>
-    <table class="compare-table">
-      <tr>
-        <th>Concepto</th><th>Definición</th><th>Ejemplo</th>
-      </tr>
-      <tr>
-        <td class="first-col">L-valor</td>
-        <td>La <strong>ubicación en memoria</strong> de la variable (dirección). El "dónde está".</td>
-        <td>En <code>x := y+3</code>, usamos el <em>L-valor</em> de x (su dirección).</td>
-      </tr>
-      <tr>
-        <td class="first-col">R-valor</td>
-        <td>El <strong>valor almacenado</strong> en la ubicación (contenido). El "qué contiene".</td>
-        <td>En <code>x := y+3</code>, usamos el <em>R-valor</em> de y (su contenido).</td>
-      </tr>
-      <tr>
-        <td class="first-col">Aliasing</td>
-        <td>Cuando dos identificadores distintos referencian <strong>la misma ubicación</strong> en memoria.</td>
-        <td>Ocurre con pasaje por referencia de la misma variable, o con punteros en C.</td>
-      </tr>
-    </table>
-
-    <h3 class="subsection">Celdas de referencia en ML</h3>
-    <div class="code-block">
-      <pre><span class="label">ML — Operaciones con celdas de referencia</span><span class="kw">ref</span> v       <span class="cm">(* Crea una celda que contiene v *)</span>
-!r          <span class="cm">(* Lee el valor de la celda r *)</span>
-r := v      <span class="cm">(* Escribe v en la celda r *)</span>
-
-<span class="cm">(* Ejemplo completo *)</span>
-<span class="kw">val</span> x = <span class="kw">ref</span> <span class="num">42</span>    <span class="cm">(* x : int ref *)</span>
-<span class="kw">val</span> y = !x          <span class="cm">(* y = 42 *)</span>
-x := <span class="num">100</span>            <span class="cm">(* x ahora apunta a 100 *)</span></pre>
-    </div>
-  </section>
-
-  <section class="section" id="tipos">
-    <div class="section-header">
-      <div class="eyebrow" style="color:var(--accent1)">04 · Tipos</div>
-      <h2>Tipos de Datos</h2>
-    </div>
-
-    <div class="cards">
-      <div class="card">
-        <span class="badge badge-blue">Estático</span>
-        <h3>Tipado estático</h3>
-        <p>Los tipos se verifican en <strong>tiempo de compilación</strong>. Errores detectados antes de ejecutar. Ej: Java, C++, Haskell, ML.</p>
-      </div>
-      <div class="card">
-        <span class="badge badge-orange">Dinámico</span>
-        <h3>Tipado dinámico</h3>
-        <p>Los tipos se verifican en <strong>tiempo de ejecución</strong>. Más flexible pero puede fallar en runtime. Ej: Python, Ruby, JavaScript.</p>
-      </div>
-      <div class="card">
-        <span class="badge badge-green">Fuerte</span>
-        <h3>Tipado fuerte</h3>
-        <p>No se permiten conversiones implícitas inseguras. Los tipos no se mezclan sin operación explícita. Ej: Python, Haskell.</p>
-      </div>
-      <div class="card">
-        <span class="badge badge-pink">Débil</span>
-        <h3>Tipado débil</h3>
-        <p>Permite conversiones implícitas (<em>casteos</em> automáticos). Puede generar comportamiento inesperado. Ej: Perl, C, JavaScript.</p>
-      </div>
-    </div>
-
-    <h3 class="subsection">Inferencia de tipos en ML</h3>
-    <p class="body-text">ML puede deducir el tipo de una expresión sin que el programador lo declare explícitamente. El compilador resuelve un sistema de ecuaciones de tipos.</p>
-
-    <div class="code-block">
-      <pre><span class="label">ML — Inferencia de tipos</span><span class="cm">(* ML infiere: aplicar : ('a -> 'b) -> 'a -> 'b *)</span>
-<span class="kw">fun</span> <span class="fn">aplicar</span>(f, x) = f(x)
-
-<span class="cm">(* ML infiere: a : (int * int) -> bool *)</span>
-<span class="kw">fun</span> <span class="fn">a</span>(x, y) = (x > <span class="num">2</span>) orelse (y < <span class="num">10</span>)
-
-<span class="cm">(* Duck typing en Crystal: compila si el tipo tiene el método *)</span>
-<span class="cm">(* Si Duck quacks y Goose quacks: tipo inferido = Duck | Goose *)</span>
-<span class="cm">(* Error en compile-time, NO en runtime (a diferencia de Python) *)</span></pre>
-    </div>
-
-    <div class="callout info">
-      <div class="callout-icon">🦆</div>
-      <div class="callout-body">
-        <h4>Duck Typing</h4>
-        <p>"Si camina como un pato y grazna como un pato, entonces es un pato." El tipo se determina por los métodos disponibles, no por la declaración explícita. Lenguajes dinámicos como Python lo usan extensivamente.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="bloques">
-    <div class="section-header">
-      <div class="eyebrow" style="color:var(--accent2)">05 · Estructura</div>
-      <h2>Bloques & Activation Records</h2>
-    </div>
-
-    <div class="callout warn">
-      <div class="callout-icon">🍝</div>
-      <div class="callout-body">
-        <h4>Código Spaghetti</h4>
-        <p>Código con saltos GOTO arbitrarios que lo hacen incomprensible. Ejemplo: Fortran histórico. La estructura de bloques fue creada para resolverlo.</p>
-      </div>
-    </div>
-
-    <h3 class="subsection">Propiedades de los lenguajes estructurados por bloques</h3>
-    <div class="cards">
-      <div class="card">
-        <div class="card-tag">Propiedad 1</div>
-        <h3>Declaración local</h3>
-        <p>Variables se declaran dentro de bloques. Solo son visibles en ese bloque y los anidados (variables locales).</p>
-      </div>
-      <div class="card">
-        <div class="card-tag">Propiedad 2</div>
-        <h3>Anidamiento no solapado</h3>
-        <p>Los bloques pueden anidarse pero no solaparse parcialmente. Si comparten código, uno debe estar enteramente dentro del otro.</p>
-      </div>
-      <div class="card">
-        <div class="card-tag">Propiedad 3</div>
-        <h3>Memoria dinámica</h3>
-        <p>Al entrar al bloque se asigna memoria; al salir, se libera. Esto permite recursión y variables independientes por llamada.</p>
-      </div>
-    </div>
-
-    <h3 class="subsection">Activation Record (Stack Frame)</h3>
-    <p class="body-text">Estructura de datos apilada en el <span class="highlight">stack de ejecución</span> cuando el programa entra a un bloque. Contiene todo lo necesario para esa llamada.</p>
-
-    <div class="code-block">
-      <pre><span class="label">Contenido típico de un Activation Record (x86)</span>┌─────────────────────────────────┐
-│  Argumentos recibidos            │  ← escritos por quien llama
-│  Variables locales               │  ← declaradas en este bloque
-│  Resultados intermedios          │  ← cálculos temporales
-│  Control Link  ──────────────►   │  ← apunta al AR anterior (quien llamó)
-│  Access Link   ──────────────►   │  ← apunta al AR del bloque contenedor
-│  Dirección de retorno            │  ← adónde volver al desapilar
-└─────────────────────────────────┘</pre>
-    </div>
-
-    <div class="accordion">
-      <div class="accordion-header" onclick="toggleAccordion(this)">
-        <span class="accordion-title">¿Por qué no hay recursión en Fortran histórico?</span>
-        <span class="accordion-arrow">▼</span>
-      </div>
-      <div class="accordion-body">
-        En Fortran antiguo, todas las variables (incluyendo parámetros de subrutinas) tenían una <strong>ubicación fija en memoria</strong>. Si P llama a Q, Q llama a R, y R intenta llamar de nuevo a P, la segunda llamada <em>pisaría</em> los valores de la primera llamada. La estructura de bloques y los activation records en el stack resolvieron esto completamente.
-      </div>
-    </div>
-
-    <div class="accordion">
-      <div class="accordion-header" onclick="toggleAccordion(this)">
-        <span class="accordion-title">Stack Overflow y Tail Call Optimization (TCO)</span>
-        <span class="accordion-arrow">▼</span>
-      </div>
-      <div class="accordion-body">
-        Muchas llamadas recursivas apilan muchos activation records. Si la recursión es muy profunda, se agota el stack (stack overflow). La <strong>optimización de recursión a la cola</strong> reutiliza el mismo activation record para llamadas tail-recursive, manteniendo el stack en tamaño constante. Haskell, Scala, y Scheme lo hacen automáticamente.
-      </div>
-    </div>
-
-    <h3 class="subsection">Ejemplo de ejecución de bloques</h3>
-    <div class="code-block">
-      <pre><span class="label">Traza de la pila — bloques anidados</span><span class="cm">// Código:</span>
-{ <span class="kw">int</span> x = <span class="num">0</span>;
-  <span class="kw">int</span> y = x + <span class="num">1</span>;
-  { <span class="kw">int</span> z = (x + y) * (x - y); }
-}
-
-<span class="cm">// Estado de la pila:</span>
-<span class="cm">// Entrada bloque exterior:  [AR: x=0, y=1]</span>
-<span class="cm">// Entrada bloque interior:  [AR: x=0, y=1] ← [AR: z=?]</span>
-<span class="cm">// Salida bloque interior:   [AR: x=0, y=1]</span>
-<span class="cm">// Salida bloque exterior:   []</span></pre>
-    </div>
-  </section>
-
-  <section class="section" id="parametros">
-    <div class="section-header">
-      <div class="eyebrow" style="color:var(--accent2)">06 · Control</div>
-      <h2>Pasaje de Parámetros</h2>
-    </div>
-
-    <p class="body-text">Los <strong>parámetros formales</strong> son los de la declaración de la función. Los <strong>parámetros reales</strong> son los valores efectivos en una llamada concreta.</p>
 
     <table class="compare-table">
       <tr>
-        <th>Mecanismo</th><th>Se pasa</th><th>Efecto</th><th>Lenguajes</th>
+        <th>Propiedad del lenguaje de Scripting</th>
+        <th>¿Aparece en el código del parcial? (Python)</th>
       </tr>
       <tr>
-        <td class="first-col">Por valor</td>
-        <td>R-valor (copia del contenido)</td>
-        <td>Asignaciones dentro <strong>no afectan</strong> al bloque que llama</td>
-        <td>C, Java, ML</td>
+        <td><strong>Las variables no requieren asignación explícita de tipo.</strong></td>
+        <td><strong>SÍ.</strong> En la línea <code>resultado = {}</code> o <code>datos = procesar_archivo(...)</code> no se declara <code>Dict datos = ...</code>.</td>
       </tr>
       <tr>
-        <td class="first-col">Por referencia</td>
-        <td>L-valor (dirección de memoria)</td>
-        <td>Asignaciones dentro <strong>sí afectan</strong> al bloque que llama. Aliasing posible.</td>
-        <td>Perl (default), C++ (&)</td>
+        <td><strong>Seguridad de tipos</strong> (evita comportamientos inesperados)</td>
+        <td><strong>NO en este fragmento.</strong> Python permite meter strings y números en el mismo diccionario dinámicamente sin quejarse hasta que explota en runtime.</td>
       </tr>
       <tr>
-        <td class="first-col">Por valor-resultado</td>
-        <td>Copia; al terminar, copia de vuelta</td>
-        <td>Como referencia pero sin aliasing durante ejecución. Resultado depende del compilador.</td>
-        <td>Poco usado hoy</td>
+        <td><strong>Buena comunicación con el S.O.</strong></td>
+        <td><strong>NO en este fragmento.</strong> Abrir un archivo (`open()`) es estándar en cualquier lenguaje, no invoca comandos de consola (como haría `os.system()` o bash).</td>
       </tr>
       <tr>
-        <td class="first-col">Por nombre</td>
-        <td>Expresión sin evaluar (lazy)</td>
-        <td>Se reevalúa cada vez que se usa. Útil si el argumento no siempre se usa.</td>
-        <td>ALGOL 60, Scala (=>)</td>
-      </tr>
-      <tr>
-        <td class="first-col">Por necesidad</td>
-        <td>Expresión lazy + memoización</td>
-        <td>Como por nombre, pero se evalúa una sola vez y se memoriza el resultado.</td>
-        <td>Haskell, R</td>
-      </tr>
-      <tr>
-        <td class="first-col">Call-by-sharing</td>
-        <td>Referencia a objeto (valor)</td>
-        <td>Mutaciones del objeto son visibles; reasignación de la variable no.</td>
-        <td>Java, Python, Ruby, JS</td>
-      </tr>
-    </table>
-
-    <h3 class="subsection">Por valor vs. por referencia — Código comparado</h3>
-    <div class="code-block">
-      <pre><span class="label">ML — Diferencia semántica</span><span class="cm">(* PASAJE POR VALOR — x es una copia local *)</span>
-<span class="kw">fun</span> <span class="fn">f</span>(z : <span class="kw">int</span>) = <span class="kw">let</span> x = <span class="kw">ref</span> z <span class="kw">in</span> x := !x + <span class="num">1</span>; !x <span class="kw">end</span>
-<span class="cm">(* Si y=0, f(!y) = 1, pero y sigue siendo 0 *)</span>
-
-<span class="cm">(* PASAJE POR REFERENCIA — x es un alias de la variable real *)</span>
-<span class="kw">fun</span> <span class="fn">f</span>(x : <span class="kw">int ref</span>) = (x := !x + <span class="num">1</span>; !x)
-<span class="cm">(* Si y=0, f(y) = 1, y ahora y también es 1 *)</span></pre>
-    </div>
-
-    <div class="callout info">
-      <div class="callout-icon">🧠</div>
-      <div class="callout-body">
-        <h4>Truco para el parcial</h4>
-        <p>Para determinar el tipo de pasaje: si dos llamadas <code>f(x, x)</code> con los mismos argumentos dan resultados diferentes, hay aliasing → es por referencia. Si no hay diferencia, es por valor.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="alcance">
-    <div class="section-header">
-      <div class="eyebrow" style="color:var(--accent2)">07 · Control</div>
-      <h2>Alcance Estático vs. Dinámico</h2>
-    </div>
-
-    <div class="cards">
-      <div class="card">
-        <span class="badge badge-blue">Léxico / Estático</span>
-        <h3>Alcance Estático</h3>
-        <p>Una variable global se refiere al identificador en el <strong>bloque contenedor más cercano en el texto del programa</strong>. Determinado en tiempo de compilación. La mayoría de lenguajes modernos.</p>
-      </div>
-      <div class="card">
-        <span class="badge badge-orange">Dinámico</span>
-        <h3>Alcance Dinámico</h3>
-        <p>Una variable global se refiere al identificador del <strong>activation record más reciente en el stack</strong> en tiempo de ejecución. LISP antiguo, Bash, TeX/LaTeX, macros.</p>
-      </div>
-    </div>
-
-    <h3 class="subsection">Ejemplo clásico: diferencia visible</h3>
-    <div class="code-block">
-      <pre><span class="label">Pseudo-código — Alcance estático vs. dinámico</span><span class="kw">int</span> x = <span class="num">1</span>;
-
-<span class="kw">function</span> <span class="fn">g</span>(z) = x + z;      <span class="cm">// x libre en g</span>
-
-<span class="kw">function</span> <span class="fn">f</span>(y) = {
-  <span class="kw">int</span> x = y + <span class="num">1</span>;             <span class="cm">// x local en f, x=4 si y=3</span>
-  <span class="kw">return</span> <span class="fn">g</span>(y * x);           <span class="cm">// llama g(12)</span>
-}
-
-<span class="fn">f</span>(<span class="num">3</span>);
-
-<span class="cm">// En g, x+z con z=12:</span>
-<span class="cm">// Alcance ESTÁTICO → x = 1 (bloque exterior del texto)  → resultado: 13</span>
-<span class="cm">// Alcance DINÁMICO → x = 4 (activation record más reciente)  → resultado: 16</span></pre>
-    </div>
-
-    <h3 class="subsection">Access Links — Implementación del alcance estático</h3>
-    <p class="body-text">Para implementar alcance estático, cada activation record tiene un <span class="highlight">access link</span> (puntero al AR del bloque contenedor en el texto). Es distinto al control link (que apunta al AR de quien llamó).</p>
-
-    <table class="compare-table">
-      <tr>
-        <th>Link</th><th>Apunta a...</th><th>Propósito</th>
-      </tr>
-      <tr>
-        <td class="first-col">Control Link</td>
-        <td>AR del bloque que realizó la llamada</td>
-        <td>Saber adónde volver al desapilar (flujo de control)</td>
-      </tr>
-      <tr>
-        <td class="first-col">Access Link</td>
-        <td>AR del bloque contenedor en el <em>texto</em></td>
-        <td>Encontrar variables libres con semántica léxica</td>
+        <td><strong>Reglas de alcance explícitas</strong></td>
+        <td><strong>NO.</strong> En Python el scope es implícito (local a la función, no requiere usar palabras clave como `let` o `local` para declarar el ámbito).</td>
       </tr>
     </table>
   </section>
 
-  <section class="section" id="altoorden">
+  <section class="section" id="prolog">
     <div class="section-header">
-      <div class="eyebrow" style="color:var(--accent2)">08 · Control</div>
-      <h2>Alto Orden & Clausuras</h2>
+      <h2>Prolog: Árbol de Backtracking</h2>
     </div>
-
-    <div class="callout tip">
-      <div class="callout-icon">⭐</div>
-      <div class="callout-body">
-        <h4>Funciones de primera clase</h4>
-        <p>Un lenguaje tiene funciones de primera clase si pueden: <strong>(1)</strong> declararse en cualquier alcance, <strong>(2)</strong> pasarse como argumentos, <strong>(3)</strong> devolverse como resultado de funciones. ML, Haskell, Python, JavaScript las tienen; C no.</p>
-      </div>
-    </div>
-
-    <h3 class="subsection">Clausura (Closure)</h3>
-    <p class="body-text">En un lenguaje con alcance estático y funciones de primera clase, un valor de función se representa como una <span class="highlight">clausura</span>: par formado por un puntero al código de la función + puntero al activation record de su entorno léxico.</p>
-
-    <div class="code-block">
-      <pre><span class="label">ML — Función map: primer orden superior clásico</span><span class="kw">fun</span> <span class="fn">map</span>(f, nil)   = nil
-  | <span class="fn">map</span>(f, x::xs) = f(x) :: <span class="fn">map</span>(f, xs)
-
-<span class="cm">(* f es una función de primera clase *)</span>
-<span class="cm">(* Ejemplo: incrementar todos los elementos *)</span>
-<span class="fn">map</span>(<span class="kw">fn</span> x => x + <span class="num">1</span>, [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>])  <span class="cm">(* = [2, 3, 4] *)</span></pre>
-    </div>
-
-    <div class="accordion">
-      <div class="accordion-header" onclick="toggleAccordion(this)">
-        <span class="accordion-title">Problema "Downward Funarg" — ¿Por qué C no tiene clausuras?</span>
-        <span class="accordion-arrow">▼</span>
-      </div>
-      <div class="accordion-body">
-        Cuando <code>f</code> se pasa como argumento a <code>g</code>, y dentro de <code>g</code> se llama a <code>f</code>, necesitamos el access link del entorno donde <code>f</code> fue declarada. C prohíbe funciones anidadas para evitar este overhead. C++ moderno usa lambdas que capturan el entorno explícitamente.
-      </div>
-    </div>
-
-    <div class="accordion">
-      <div class="accordion-header" onclick="toggleAccordion(this)">
-        <span class="accordion-title">Recursión a la cola (Tail Call Optimization)</span>
-        <span class="accordion-arrow">▼</span>
-      </div>
-      <div class="accordion-body">
-        Una función es <strong>recursiva de cola</strong> si todas las llamadas recursivas son la última operación (no hay cálculo posterior al retorno). El compilador puede <strong>reutilizar el mismo activation record</strong>, convirtiendo recursión en iteración eficiente en memoria.
-        <div style="margin-top:12px">
-          <code style="font-family:'Space Mono',monospace; font-size:11px; color:#c2d6eb">
-            fun factcola(n, a) = if n &lt;= 1 then a else factcola(n-1, n*a)
-          </code>
-        </div>
-        Esta es recursiva de cola. <code>fact(n) = n * fact(n-1)</code> NO lo es (hay multiplicación después del retorno).
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="paradigmas">
-    <div class="section-header">
-      <div class="eyebrow" style="color:var(--accent3)">09 · Panorama</div>
-      <h2>Resumen de Paradigmas</h2>
-    </div>
-
-    <div class="paradigm-list">
-      <div class="paradigm-item">
-        <div class="paradigm-dot">⚙️</div>
-        <div class="paradigm-content">
-          <h3>Imperativo / Estructurado</h3>
-          <p>Describe <em>cómo</em> resolver un problema mediante secuencias de instrucciones que modifican el estado. Usa variables mutables, loops, condicionales.</p>
-          <div class="paradigm-langs">
-            <span class="lang-badge">C</span>
-            <span class="lang-badge">Pascal</span>
-            <span class="lang-badge">Fortran</span>
-            <span class="lang-badge">Algol</span>
+    
+    <p style="margin-bottom:20px; font-size:18px;">Consulta: <code>?- equipo(elena, ana).</code></p>
+    
+    <div style="background:var(--surface2); padding: 20px; border-radius:8px; border:1px solid var(--accent1); font-family: 'Space Mono', monospace; font-size:14px;">
+      
+      <div><strong>1. Buscar regla:</strong> <code>equipo(elena, ana) :- departamento(elena, ana), not(jefe(elena, ana)).</code></div>
+      
+      <div class="tree-node">
+        <strong>2. Subobjetivo 1:</strong> Resolver <code>departamento(elena, ana)</code> <span class="tree-success">(TRUE)</span>
+        <div class="tree-node">
+          Regla: <code>departamento(elena, ana) :- especialista(elena, A), especialista(ana, A).</code>
+          <div class="tree-node">
+            - Busca <code>especialista(elena, A)</code> -> Encuentra hecho <code>especialista(elena, traumatologia)</code>. Unifica <span style="color:var(--accent1)">A = traumatologia</span>.
+          </div>
+          <div class="tree-node">
+            - Busca <code>especialista(ana, traumatologia)</code> -> Encuentra hecho. <span class="tree-success">Verdadero.</span>
           </div>
         </div>
       </div>
-      <div class="paradigm-item">
-        <div class="paradigm-dot">🏛️</div>
-        <div class="paradigm-content">
-          <h3>Orientación a Objetos</h3>
-          <p>Organiza el código en <em>objetos</em> que encapsulan datos y comportamiento. Herencia, polimorfismo, encapsulación.</p>
-          <div class="paradigm-langs">
-            <span class="lang-badge">Java</span>
-            <span class="lang-badge">C++</span>
-            <span class="lang-badge">Python</span>
-            <span class="lang-badge">Ruby</span>
+
+      <div class="tree-node">
+        <strong>3. Subobjetivo 2:</strong> Resolver <code>not(jefe(elena, ana))</code> <span class="tree-success">(TRUE)</span>
+        <div class="tree-node" style="color:var(--muted);">
+          <em>Para resolver un NOT, Prolog intenta probar lo de adentro. Si falla, el NOT es verdadero (Negation as Failure).</em>
+        </div>
+        <div class="tree-node">
+          - Intenta probar <code>jefe(elena, ana)</code>
+          <div class="tree-node">
+            Regla: <code>jefe(elena, ana) :- deriva(elena, ana), departamento(elena, ana).</code>
+            <div class="tree-node">
+              - Busca <code>deriva(elena, ana)</code> -> Revisa los hechos. Solo existen derivaciones desde 'clara' y 'esteban'. NO hay desde 'elena'. <span class="tree-fail">FALLA.</span>
+            </div>
           </div>
+          Como <code>deriva</code> falló, <code>jefe</code> falla.
         </div>
-      </div>
-      <div class="paradigm-item">
-        <div class="paradigm-dot">λ</div>
-        <div class="paradigm-content">
-          <h3>Funcional</h3>
-          <p>Describe <em>qué</em> calcular, no cómo. Funciones puras sin efectos secundarios, inmutabilidad, composición de funciones.</p>
-          <div class="paradigm-langs">
-            <span class="lang-badge">Haskell</span>
-            <span class="lang-badge">ML</span>
-            <span class="lang-badge">Scala</span>
-            <span class="lang-badge">OCaml</span>
-          </div>
-        </div>
-      </div>
-      <div class="paradigm-item">
-        <div class="paradigm-dot">🔢</div>
-        <div class="paradigm-content">
-          <h3>Lógico</h3>
-          <p>Programa declarando <em>hechos y reglas</em>. El motor de inferencia encuentra las soluciones. Relaciones en vez de funciones.</p>
-          <div class="paradigm-langs">
-            <span class="lang-badge">Prolog</span>
-          </div>
-        </div>
-      </div>
-      <div class="paradigm-item">
-        <div class="paradigm-dot">⚡</div>
-        <div class="paradigm-content">
-          <h3>Concurrente</h3>
-          <p>Múltiples secuencias de ejecución en paralelo. Requiere sincronización, comunicación y atomicidad.</p>
-          <div class="paradigm-langs">
-            <span class="lang-badge">Scala</span>
-            <span class="lang-badge">Go</span>
-            <span class="lang-badge">Erlang</span>
-            <span class="lang-badge">Java</span>
-          </div>
-        </div>
-      </div>
-      <div class="paradigm-item">
-        <div class="paradigm-dot">📜</div>
-        <div class="paradigm-content">
-          <h3>Scripting</h3>
-          <p>Lenguajes de alto nivel para automatizar tareas. Tipado dinámico, menos boilerplate, acceso fácil al SO.</p>
-          <div class="paradigm-langs">
-            <span class="lang-badge">Python</span>
-            <span class="lang-badge">Perl</span>
-            <span class="lang-badge">JavaScript</span>
-            <span class="lang-badge">Ruby</span>
-            <span class="lang-badge">Bash</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="funcional">
-    <div class="section-header">
-      <div class="eyebrow" style="color:var(--accent3)">10 · Paradigma</div>
-      <h2>Paradigma Funcional</h2>
-    </div>
-
-    <table class="compare-table">
-      <tr>
-        <th>Imperativo</th>
-        <th>Funcional</th>
-      </tr>
-      <tr>
-        <td>Expresa <em>cómo</em> calcular (secuencias de pasos)</td>
-        <td>Expresa <em>qué</em> calcular (funciones matemáticas)</td>
-      </tr>
-      <tr>
-        <td>Variables mutables y estado compartido</td>
-        <td>Inmutabilidad: los datos no cambian</td>
-      </tr>
-      <tr>
-        <td>Loops (for, while)</td>
-        <td>Recursión y funciones de orden superior</td>
-      </tr>
-      <tr>
-        <td>Efectos secundarios explícitos</td>
-        <td>Funciones puras: misma entrada → misma salida</td>
-      </tr>
-    </table>
-
-    <h3 class="subsection">Propiedades valiosas del paradigma funcional</h3>
-    <div class="cards">
-      <div class="card">
-        <div class="card-tag" style="color:var(--accent3)">Composicionalidad</div>
-        <h3>Funciones como bloques</h3>
-        <p>Las funciones se componen como piezas de Lego. El output de una es el input de la siguiente.</p>
-      </div>
-      <div class="card">
-        <div class="card-tag" style="color:var(--accent3)">Transparencia referencial</div>
-        <h3>Sin efectos secundarios</h3>
-        <p>Una expresión siempre evalúa al mismo valor. Facilita razonamiento formal, testing y optimización.</p>
-      </div>
-      <div class="card">
-        <div class="card-tag" style="color:var(--accent3)">Concurrencia declarativa</div>
-        <h3>Paralelismo natural</h3>
-        <p>Sin estado mutable compartido → sin condiciones de carrera. Computación paralela más sencilla y segura.</p>
-      </div>
-    </div>
-
-    <div class="code-block">
-      <pre><span class="label">ML — Expresión funcional vs. imperativa</span><span class="cm">(* Imperativo: expresa CÓMO *)</span>
-<span class="kw">let</span> suma_imperativa = <span class="kw">ref</span> <span class="num">0</span>
-<span class="kw">for</span> i = <span class="num">1</span> <span class="kw">to</span> <span class="num">10</span> <span class="kw">do</span> suma_imperativa := !suma_imperativa + i <span class="kw">done</span>
-
-<span class="cm">(* Funcional: expresa QUÉ *)</span>
-<span class="kw">let</span> suma_funcional = List.fold_left (+) <span class="num">0</span> [<span class="num">1</span>..<span class="num">10</span>]</pre>
-    </div>
-
-    <div class="callout tip">
-      <div class="callout-icon">⚠️</div>
-      <div class="callout-body">
-        <h4>Problemas naturalmente no declarativos</h4>
-        <p>Algunas tareas son <strong>inherentemente imperativas</strong>: operaciones I/O, interacción con hardware, generadores de números pseudo-aleatorios. Los lenguajes funcionales usan mónadas (Haskell) u otras abstracciones para manejar estos efectos controladamente.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="oop">
-    <div class="section-header">
-      <div class="eyebrow" style="color:var(--accent3)">11 · Paradigma</div>
-      <h2>Orientación a Objetos</h2>
-    </div>
-
-    <div class="cards">
-      <div class="card">
-        <span class="badge badge-blue">Pilar 1</span>
-        <h3>Encapsulación</h3>
-        <p>Los objetos ocultan su implementación interna. Solo se expone una interfaz pública. Protege el estado y reduce el acoplamiento.</p>
-      </div>
-      <div class="card">
-        <span class="badge badge-purple">Pilar 2</span>
-        <h3>Herencia</h3>
-        <p>Una clase puede heredar atributos y métodos de una clase padre. Permite reutilización de código y jerarquías de tipos.</p>
-      </div>
-      <div class="card">
-        <span class="badge badge-green">Pilar 3</span>
-        <h3>Polimorfismo</h3>
-        <p>Una misma interfaz funciona para diferentes tipos. Despacho dinámico (late binding) en métodos virtuales.</p>
-      </div>
-      <div class="card">
-        <span class="badge badge-orange">Extra</span>
-        <h3>Abstracción</h3>
-        <p>Las clases abstractas/interfaces definen contratos sin implementación. Permiten separar interfaz de implementación.</p>
-      </div>
-    </div>
-
-    <h3 class="subsection">C++ vs Java — Diferencias clave</h3>
-    <table class="compare-table">
-      <tr>
-        <th>Característica</th><th>C++</th><th>Java</th>
-      </tr>
-      <tr>
-        <td class="first-col">Herencia múltiple</td>
-        <td>Sí (con sus problemas)</td>
-        <td>Solo de interfaces</td>
-      </tr>
-      <tr>
-        <td class="first-col">Gestión de memoria</td>
-        <td>Manual (new/delete)</td>
-        <td>Automática (Garbage Collector)</td>
-      </tr>
-      <tr>
-        <td class="first-col">Métodos virtuales</td>
-        <td>Explícitos con <code>virtual</code></td>
-        <td>Todo método es virtual por default</td>
-      </tr>
-      <tr>
-        <td class="first-col">Pasaje de parámetros</td>
-        <td>Por valor o referencia (&)</td>
-        <td>Call-by-sharing (referencias a objetos)</td>
-      </tr>
-    </table>
-
-    <div class="callout info">
-      <div class="callout-icon">🔗</div>
-      <div class="callout-body">
-        <h4>Relación con clausuras</h4>
-        <p>Una <strong>clausura</strong> y un <strong>objeto</strong> son conceptualmente similares: ambos combinan datos y código. Un objeto es como una clausura con múltiples métodos; una clausura es como un objeto con un solo método.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="logico">
-    <div class="section-header">
-      <div class="eyebrow" style="color:var(--accent4)">12 · Paradigma</div>
-      <h2>Programación Lógica — Prolog</h2>
-    </div>
-
-    <div class="cards">
-      <div class="card">
-        <div class="card-tag" style="color:var(--accent4)">Primitiva básica</div>
-        <h3>Relaciones (predicados)</h3>
-        <p>En lugar de <code>F(x)=y</code> (función), se declaran relaciones: <code>R(x,y)</code> — "se da la relación R entre x e y". El motor de Prolog busca si esa relación se puede satisfacer.</p>
-      </div>
-      <div class="card">
-        <div class="card-tag" style="color:var(--accent4)">Origen</div>
-        <h3>Alain Colmerauer, 1972</h3>
-        <p>Creado para procesamiento del lenguaje natural. "Programmation en logique". Aplicado en IA, bases de datos, sistemas expertos.</p>
-      </div>
-      <div class="card">
-        <div class="card-tag" style="color:var(--accent4)">Ventaja clave</div>
-        <h3>Más poderoso que SQL</h3>
-        <p>Puede usar recursión para consultas de grafo. Ej: encontrar vuelos con escala, no solo directos. SQL no puede hacer consultas recursivas de manera natural.</p>
-      </div>
-    </div>
-
-    <h3 class="subsection">Bloques de construcción de Prolog</h3>
-    <table class="compare-table">
-      <tr><th>Bloque</th><th>Sintaxis</th><th>Significado</th></tr>
-      <tr>
-        <td class="first-col">Hecho (Fact)</td>
-        <td><code>padre(tom, bob).</code></td>
-        <td>Una relación que se declara verdadera sin condiciones.</td>
-      </tr>
-      <tr>
-        <td class="first-col">Regla (Rule)</td>
-        <td><code>abuelo(X,Z) :- padre(X,Y), padre(Y,Z).</code></td>
-        <td>X es abuelo de Z <strong>si</strong> X es padre de Y <strong>y</strong> Y es padre de Z.</td>
-      </tr>
-      <tr>
-        <td class="first-col">Consulta (Query)</td>
-        <td><code>?- abuelo(tom, ann).</code></td>
-        <td>¿Es tom abuelo de ann? Prolog responde true/false o unifica variables.</td>
-      </tr>
-      <tr>
-        <td class="first-col">Variable</td>
-        <td><code>X, Y, Who</code> (mayúscula)</td>
-        <td>Se unifica con valores durante la búsqueda. Una variable libre puede tomar cualquier valor.</td>
-      </tr>
-      <tr>
-        <td class="first-col">Átomo</td>
-        <td><code>tom, ana, okc</code> (minúscula)</td>
-        <td>Constante simbólica. No puede cambiar de valor.</td>
-      </tr>
-    </table>
-
-    <h3 class="subsection">Unificación</h3>
-    <p class="body-text">El mecanismo central de Prolog. Dos términos <span class="highlight">unifican</span> si existe una sustitución de variables que los hace idénticos. Es la forma en que Prolog "llena" las variables.</p>
-    <div class="code-block">
-      <pre><span class="label">Prolog — Ejemplos de unificación</span><span class="cm">% Unificación exitosa:</span>
-?- X = 3.          <span class="cm">% X = 3  (X se liga a 3)</span>
-?- f(X, b) = f(a, b).   <span class="cm">% X = a  (X se liga a a)</span>
-?- [H|T] = [1,2,3].     <span class="cm">% H = 1, T = [2,3]</span>
-
-<span class="cm">% Unificación fallida:</span>
-?- f(a) = f(b).    <span class="cm">% false  (a ≠ b)</span>
-?- X = 1, X = 2.   <span class="cm">% false  (X no puede ser 1 y 2 a la vez)</span></pre>
-    </div>
-
-    <h3 class="subsection">Backtracking</h3>
-    <p class="body-text">Cuando un subobjetivo falla, Prolog <span class="highlight">retrocede</span> al punto de elección anterior y prueba la siguiente alternativa. Es el motor de búsqueda automático de Prolog.</p>
-    <div class="code-block">
-      <pre><span class="label">Prolog — Cómo funciona el backtracking</span>color(rojo). color(verde). color(azul).
-
-<span class="cm">% ?- color(X), X = verde.</span>
-<span class="cm">% 1. Prueba color(X) con X = rojo → ok, luego rojo = verde → FALLA</span>
-<span class="cm">% 2. Backtrack → prueba color(X) con X = verde → ok, verde = verde → ok</span>
-<span class="cm">% Resultado: X = verde</span></pre>
-    </div>
-
-    <h3 class="subsection">Negación: <code>not/1</code></h3>
-    <div class="callout warn">
-      <div class="callout-icon">⚠️</div>
-      <div class="callout-body">
-        <h4>not(X) en Prolog = "No se puede probar X"</h4>
-        <p><code>not(Goal)</code> es verdadero si Prolog <strong>no puede demostrar</strong> <code>Goal</code>. No es negación lógica clásica — es <em>Negation as Failure</em>. Si Goal contiene variables sin ligar, el resultado puede ser inesperado.</p>
-      </div>
-    </div>
-
-    <div class="code-block">
-      <pre><span class="label">Prolog — Base de datos con reglas encadenadas</span><span class="cm">% Hechos</span>
-especialista(ana, traumatologia).
-especialista(elena, traumatologia).
-especialista(clara, otorrinolaringologia).
-deriva(clara, ana).
-deriva(esteban, ana).
-
-<span class="cm">% Reglas</span>
-departamento(X, Y) :- especialista(X, A), especialista(Y, A).
-jefe(X, Y)         :- deriva(X, Y), departamento(X, Y).
-equipo(X, Y)       :- departamento(X, Y), not(jefe(X, Y)).
-
-<span class="cm">% Consultas:</span>
-?- departamento(ana, elena).   <span class="cm">% true (ambas en traumatologia)</span>
-?- jefe(clara, ana).           <span class="cm">% false (clara es de otorrino, no mismo depto)</span>
-?- equipo(elena, ana).         <span class="cm">% ← ver ejercicio resuelto →</span></pre>
-    </div>
-
-    <div class="callout tip">
-      <div class="callout-icon">🔍</div>
-      <div class="callout-body">
-        <h4>Aplicaciones típicas de Prolog</h4>
-        <p>Procesamiento de lenguaje natural · Razonamiento automático · Probadores de teoremas · Búsqueda en bases de datos relacionales · Sistemas expertos · Problemas de búsqueda (N-Reinas, Sudoku).</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="prolog_ej">
-    <div class="section-header">
-      <div class="eyebrow" style="color:var(--accent4)">12b · Ejercicio Resuelto</div>
-      <h2>Prolog: ¿Cómo resolver una consulta paso a paso?</h2>
-    </div>
-
-    <div class="callout info">
-      <div class="callout-icon">📋</div>
-      <div class="callout-body">
-        <h4>Base de conocimiento del ejercicio (del parcial)</h4>
-        <p>Se trabaja con médicos, especialidades, derivaciones y relaciones de equipo/jefatura. La pregunta es: <strong>¿Es <code>equipo(elena, ana)</code> verdadero?</strong></p>
-      </div>
-    </div>
-
-    <div class="code-block">
-      <pre><span class="label">Base de conocimiento completa</span><span class="cm">% Hechos</span>
-especialista(ana, traumatologia).
-especialista(elena, traumatologia).
-especialista(clara, otorrinolaringologia).
-especialista(esteban, traumatologia).
-deriva(clara, ana).
-deriva(clara, elena).
-deriva(esteban, ana).
-
-<span class="cm">% Reglas</span>
-departamento(X, Y) :- <span class="fn">especialista</span>(X, A), <span class="fn">especialista</span>(Y, A).
-jefe(X, Y)         :- <span class="fn">deriva</span>(X, Y), <span class="fn">departamento</span>(X, Y).
-equipo(X, Y)       :- <span class="fn">departamento</span>(X, Y), <span class="kw">not</span>(<span class="fn">jefe</span>(X, Y)).</pre>
-    </div>
-
-    <h3 class="subsection">Paso a paso: <code>?- equipo(elena, ana).</code></h3>
-
-    <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:32px;">
-
-      <div style="display:flex; gap:16px; align-items:flex-start;">
-        <div style="min-width:36px; height:36px; border-radius:50%; background:var(--accent1); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:13px; font-weight:700; flex-shrink:0; color:#020e21;">1</div>
-        <div style="background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:16px 20px; flex:1;">
-          <div style="font-weight:600; color:var(--text); margin-bottom:6px;">Buscar definición de <code>equipo/2</code></div>
-          <p style="font-size:13px; color:var(--muted); margin:0;">La única cláusula es: <code>equipo(X,Y) :- departamento(X,Y), not(jefe(X,Y)).</code><br>
-          Prolog unifica <code>X=elena, Y=ana</code> y genera dos subobjetivos.</p>
-        </div>
+        Como <code>jefe(elena, ana)</code> falló, <code>not(jefe(elena, ana))</code> es <span class="tree-success">VERDADERO</span>.
       </div>
 
-      <div style="display:flex; gap:16px; align-items:flex-start;">
-        <div style="min-width:36px; height:36px; border-radius:50%; background:var(--accent2); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:13px; font-weight:700; flex-shrink:0; color:#020e21;">2</div>
-        <div style="background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:16px 20px; flex:1;">
-          <div style="font-weight:600; color:var(--text); margin-bottom:6px;">Resolver <code>departamento(elena, ana)</code></div>
-          <p style="font-size:13px; color:var(--muted); margin:0;">Regla: <code>departamento(X,Y) :- especialista(X,A), especialista(Y,A).</code><br>
-          Unifica <code>X=elena, Y=ana</code>. Busca <code>especialista(elena, A)</code>.<br>
-          Encuentra: <code>especialista(elena, traumatologia)</code> → <code>A = traumatologia</code>.<br>
-          Luego busca <code>especialista(ana, traumatologia)</code> → <strong style="color:var(--accent3)">✓ TRUE</strong>.</p>
-        </div>
-      </div>
-
-      <div style="display:flex; gap:16px; align-items:flex-start;">
-        <div style="min-width:36px; height:36px; border-radius:50%; background:var(--accent3); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:13px; font-weight:700; flex-shrink:0; color:#020e21;">3</div>
-        <div style="background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:16px 20px; flex:1;">
-          <div style="font-weight:600; color:var(--text); margin-bottom:6px;">Resolver <code>not(jefe(elena, ana))</code></div>
-          <p style="font-size:13px; color:var(--muted); margin:0;">Prolog intenta probar <code>jefe(elena, ana)</code> para luego negar el resultado.<br>
-          Regla: <code>jefe(X,Y) :- deriva(X,Y), departamento(X,Y).</code><br>
-          Necesita <code>deriva(elena, ana)</code>. Busca en los hechos...</p>
-        </div>
-      </div>
-
-      <div style="display:flex; gap:16px; align-items:flex-start;">
-        <div style="min-width:36px; height:36px; border-radius:50%; background:var(--accent4); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:13px; font-weight:700; flex-shrink:0; color:#020e21;">4</div>
-        <div style="background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:16px 20px; flex:1;">
-          <div style="font-weight:600; color:var(--text); margin-bottom:6px;">Verificar <code>deriva(elena, ana)</code></div>
-          <p style="font-size:13px; color:var(--muted); margin:0;">Los hechos de deriva son: <code>deriva(clara, ana)</code>, <code>deriva(clara, elena)</code>, <code>deriva(esteban, ana)</code>.<br>
-          <strong>Ninguno tiene elena como primer argumento.</strong><br>
-          → <code>deriva(elena, ana)</code> es <strong style="color:#ff4d4d">FALSE</strong>.<br>
-          → <code>jefe(elena, ana)</code> es <strong style="color:#ff4d4d">FALSE</strong>.</p>
-        </div>
-      </div>
-
-      <div style="display:flex; gap:16px; align-items:flex-start;">
-        <div style="min-width:36px; height:36px; border-radius:50%; background:var(--accent5); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:13px; font-weight:700; flex-shrink:0; color:#e6f0fa;">5</div>
-        <div style="background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:16px 20px; flex:1;">
-          <div style="font-weight:600; color:var(--text); margin-bottom:6px;">Resultado final</div>
-          <p style="font-size:13px; color:var(--muted); margin:0;"><code>not(jefe(elena, ana))</code> = <code>not(FALSE)</code> = <strong style="color:var(--accent3)">TRUE</strong><br>
-          Ambos subobjetivos son true → <strong style="color:var(--accent3); font-size:15px;">equipo(elena, ana) = TRUE ✓</strong></p>
-        </div>
-      </div>
-    </div>
-
-    <h3 class="subsection">Tabla resumen de subobjetivos (como en el parcial)</h3>
-    <table class="compare-table">
-      <tr>
-        <th>Subobjetivo</th><th>Resultado</th><th>¿Por qué?</th>
-      </tr>
-      <tr>
-        <td class="first-col">especialista(elena, traumatologia)</td>
-        <td style="color:var(--accent3)">TRUE — necesario</td>
-        <td>Es un hecho en la base. Necesario para demostrar <code>departamento(elena,ana)</code>.</td>
-      </tr>
-      <tr>
-        <td class="first-col">departamento(elena, ana)</td>
-        <td style="color:var(--accent3)">TRUE — necesario</td>
-        <td>Ambas son especialistas en traumatologia. Es el primer subobjetivo de <code>equipo/2</code>.</td>
-      </tr>
-      <tr>
-        <td class="first-col">departamento(ana, elena)</td>
-        <td style="color:var(--muted)">No se comprueba directamente</td>
-        <td><code>equipo(elena,ana)</code> comprueba <code>departamento(elena,ana)</code>, no al revés. Aunque sería true, no es lo que se evalúa.</td>
-      </tr>
-      <tr>
-        <td class="first-col">deriva(elena, ana)</td>
-        <td style="color:#ff4d4d">FALSE — no existe</td>
-        <td>Se intenta para probar <code>jefe(elena,ana)</code>. No existe en la base → jefe falla → <code>not(jefe)</code> es true.</td>
-      </tr>
-    </table>
-
-    <div class="callout tip">
-      <div class="callout-icon">🧠</div>
-      <div class="callout-body">
-        <h4>Estrategia para resolver ejercicios de Prolog en el parcial</h4>
-        <p>
-          <strong>1.</strong> Escribí la consulta y buscá su definición en las reglas.<br>
-          <strong>2.</strong> Sustituí las variables con los valores concretos de la consulta.<br>
-          <strong>3.</strong> Resolvé cada subobjetivo de izquierda a derecha.<br>
-          <strong>4.</strong> Para <code>not(X)</code>: intentá probar X. Si X falla → <code>not(X)</code> es true.<br>
-          <strong>5.</strong> Si un subobjetivo falla, hacé backtracking al punto de elección anterior.
-        </p>
+      <div style="margin-top:20px; border-top:1px dashed var(--accent1); padding-top:10px;">
+        <strong>Conclusión:</strong> Ambos subobjetivos de la regla `equipo` son verdaderos. <br>
+        <strong>Resultado final: <span class="tree-success">TRUE</span></strong>
       </div>
     </div>
   </section>
 
   <section class="section" id="concurrencia">
     <div class="section-header">
-      <div class="eyebrow" style="color:var(--accent4)">13 · Paradigma</div>
-      <h2>Programación Concurrente</h2>
+      <h2>Concurrencia</h2>
     </div>
 
-    <p class="body-text">Dos o más secuencias de eventos que ocurren en paralelo. Hay dos modelos principales:</p>
-
-    <div class="cards">
-      <div class="card">
-        <div class="card-tag" style="color:var(--accent4)">Modelo 1</div>
-        <h3>Multiprogramación</h3>
-        <p>Una computadora ejecuta varios programas. Cada uno funciona secuencialmente. Las acciones de un programa pueden suceder entre dos pasos de otro (interleaving).</p>
-      </div>
-      <div class="card">
-        <div class="card-tag" style="color:var(--accent4)">Modelo 2</div>
-        <h3>Multiproceso</h3>
-        <p>Dos o más procesadores conectados. Las acciones pueden suceder <strong>simultáneamente</strong>. Comunicación entre procesadores necesaria.</p>
-      </div>
-    </div>
-
-    <h3 class="subsection">La promesa (y los retos) de la concurrencia</h3>
     <table class="compare-table">
       <tr>
-        <th>Promesa</th><th>Reto</th>
+        <th>Línea de Scala</th>
+        <th>Concepto Aplicado</th>
+        <th>Explicación Bosteril</th>
       </tr>
       <tr>
-        <td><strong>Velocidad</strong>: n procesadores → t/n tiempo?</td>
-        <td><strong>Comunicación</strong>: ¿cómo recibir/enviar info?</td>
+        <td><code>val t = new Thread(() => ...)</code><br><code>t.start()</code></td>
+        <td><strong>Manejo explícito de procesos (hilos)</strong></td>
+        <td>Estás instanciando la clase Thread y dándole <code>start()</code> a mano. Vos controlás el ciclo de vida del hilo directamente a lo Picapedrero.</td>
       </tr>
       <tr>
-        <td><strong>Disponibilidad</strong>: si un proceso está ocupado, otro ayuda</td>
-        <td><strong>Sincronización</strong>: ¿cómo esperar a otro proceso?</td>
+        <td><code>val f1 = Future { ... }</code></td>
+        <td><strong>Ejecución concurrente</strong></td>
+        <td>El bloque de código adentro del Future se manda a ejecutar de forma asíncrona en un pool de hilos (ExecutionContext) mientras el programa principal sigue de largo.</td>
       </tr>
       <tr>
-        <td><strong>Distribución</strong>: procesadores en distintos lugares colaboran</td>
-        <td><strong>Atomicidad</strong>: garantizar que una operación no quede a mitad</td>
-      </tr>
-    </table>
-
-    <h3 class="subsection">Construcciones que esperamos de un lenguaje concurrente</h3>
-    <div class="cards">
-      <div class="card">
-        <span class="badge badge-orange">Hilos</span>
-        <h3>Threads como valores</h3>
-        <p>Los hilos son ciudadanos de primera clase. Se pueden pasar a funciones, crear como resultado de una llamada.</p>
-      </div>
-      <div class="card">
-        <span class="badge badge-orange">Comunicación</span>
-        <h3>Canales y mensajes</h3>
-        <p>Comunicación síncrona o canales con buffer asíncrono que preservan el orden de mensajes.</p>
-      </div>
-      <div class="card">
-        <span class="badge badge-orange">Control</span>
-        <h3>Exclusión mutua</h3>
-        <p>Cerrojos (locks), semáforos, monitores. La atomicidad verdadera es menos común en los lenguajes.</p>
-      </div>
-    </div>
-
-    <div class="callout info">
-      <div class="callout-icon">✨</div>
-      <div class="callout-body">
-        <h4>Concurrencia declarativa</h4>
-        <p>En lenguajes funcionales puros (sin estado mutable compartido), la concurrencia es mucho más segura. No hay condiciones de carrera sobre datos inmutables. Scala, Erlang y Haskell aprovechan esto.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="scripting">
-    <div class="section-header">
-      <div class="eyebrow" style="color:var(--accent4)">14 · Paradigma</div>
-      <h2>Lenguajes de Scripting</h2>
-    </div>
-
-    <p class="body-text">Evolucionaron de dos ancestros: <strong>shells de terminal</strong> (cmd de MS-DOS, sh de Unix) y <strong>herramientas de procesamiento de texto</strong> (sed, awk, RPG).</p>
-
-    <h3 class="subsection">Evolución histórica</h3>
-    <div class="cards">
-      <div class="card">
-        <span class="badge badge-pink">1979</span>
-        <h3>Rexx (IBM)</h3>
-        <p>Restructured Extended Executor. Primer lenguaje de scripting moderno.</p>
-      </div>
-      <div class="card">
-        <span class="badge badge-pink">1987</span>
-        <h3>Perl</h3>
-        <p>Practical Extraction and Reporting Language. Famoso por regex.</p>
-      </div>
-      <div class="card">
-        <span class="badge badge-pink">1991</span>
-        <h3>Python</h3>
-        <p>Legibilidad como prioridad. Hoy el más popular en academia y data science.</p>
-      </div>
-      <div class="card">
-        <span class="badge badge-pink">1995</span>
-        <h3>JavaScript / Ruby</h3>
-        <p>JS para la web; Ruby con sintaxis elegante y paradigma OOP limpio.</p>
-      </div>
-    </div>
-
-    <h3 class="subsection">Características comunes</h3>
-    <table class="compare-table">
-      <tr>
-        <th>Característica</th><th>Detalle</th>
+        <td><code>Future.sequence(List(f1, f2))</code></td>
+        <td><strong>Sincronización y Ej. Concurrente</strong></td>
+        <td>Combina múltiples futuros. Actúa como una barrera de <strong>Sincronización</strong> lógica (el Future resultante se completa cuando *ambos* f1 y f2 terminan).</td>
       </tr>
       <tr>
-        <td class="first-col">Poco boilerplate</td>
-        <td><code>print "Hello, world!\n"</code> vs. toda una clase en Java</td>
+        <td><code>t.join()</code></td>
+        <td><strong>Sincronización</strong></td>
+        <td>El hilo principal frena y espera a que el hilo <code>t</code> termine. Sincroniza la ejecución de dos ramas de control.</td>
       </tr>
       <tr>
-        <td class="first-col">Sin declaraciones</td>
-        <td>Variables se usan directamente. Alcance: global en Perl, local en Python.</td>
-      </tr>
-      <tr>
-        <td class="first-col">Tipado dinámico flexible</td>
-        <td>PHP, Python, Ruby comprueban el tipo justo antes de usar. Perl/Tcl hacen casteo automático.</td>
-      </tr>
-      <tr>
-        <td class="first-col">Acceso fácil al SO</td>
-        <td>Pipes, procesos, sistema de archivos. Ej: <code>os.system()</code>, backticks en Perl.</td>
-      </tr>
-    </table>
-
-    <div class="code-block">
-      <pre><span class="label">Perl — Tipado muy dinámico (casteo automático)</span>$a = <span class="str">"4"</span>
-print $a . <span class="num">3</span> . <span class="str">"\n"</span>   <span class="cm"># Output: 43  (string concatenation)</span>
-print $a + <span class="num">3</span> . <span class="str">"\n"</span>   <span class="cm"># Output: 7   (arithmetic addition)</span></pre>
-    </div>
-  </section>
-
-  <section class="section" id="frameworks">
-    <div class="section-header">
-      <div class="eyebrow" style="color:var(--accent5)">15 · Herramientas</div>
-      <h2>Frameworks de Programación</h2>
-    </div>
-
-    <div class="callout info">
-      <div class="callout-icon">🏗️</div>
-      <div class="callout-body">
-        <h4>¿Qué es un Framework?</h4>
-        <p>Una abstracción de software que provee funcionalidades genéricas que se pueden instanciar para aplicaciones específicas. Es la evolución del <em>boilerplate</em>. Método estándar para desplegar aplicaciones.</p>
-      </div>
-    </div>
-
-    <div class="cards">
-      <div class="card">
-        <span class="badge badge-pink">Concepto clave</span>
-        <h3>Inversión de Control (IoC)</h3>
-        <p>"No nos llame, nosotros lo llamaremos" — Principio de Hollywood. El flujo del programa está determinado por el framework, no por el programador.</p>
-      </div>
-      <div class="card">
-        <span class="badge badge-pink">Concepto clave</span>
-        <h3>Frozen Spots vs Hot Spots</h3>
-        <p><strong>Frozen:</strong> arquitectura fija, inalterables. <strong>Hot:</strong> partes donde el programador añade código específico del proyecto.</p>
-      </div>
-      <div class="card">
-        <span class="badge badge-pink">vs. Librerías</span>
-        <h3>Diferencia esencial</h3>
-        <p>Con una librería, <em>tu código</em> la llama. Con un framework, <em>el framework</em> llama a tu código. La diferencia es quién tiene el control del flujo.</p>
-      </div>
-    </div>
-
-    <h3 class="subsection">Arquitectura MVC</h3>
-    <div class="code-block">
-      <pre><span class="label">MVC — Model · View · Controller</span><span class="kw">Model</span>       → Datos y lógica de negocio
-<span class="kw">View</span>        → Presentación e interfaz de usuario
-<span class="kw">Controller</span>  → Intermediario; recibe input y actualiza Model/View
-
-<span class="cm">// El framework llama al Controller según las rutas</span>
-<span class="cm">// El programador solo implementa los Hot Spots</span></pre>
-    </div>
-
-    <h3 class="subsection">Desventajas de los Frameworks</h3>
-    <table class="compare-table">
-      <tr>
-        <th>Problema</th><th>Descripción</th>
-      </tr>
-      <tr>
-        <td class="first-col">Code bloat</td>
-        <td>Código muy voluminoso para aplicaciones pequeñas. Se mantienen funcionalidades deprecadas.</td>
-      </tr>
-      <tr>
-        <td class="first-col">Curva de aprendizaje</td>
-        <td>Tiempo de aprendizaje largo. Solo rinde si se usa para más de un proyecto.</td>
-      </tr>
-      <tr>
-        <td class="first-col">No modificable</td>
-        <td>No se puede cambiar el código del framework. Solo se extiende mediante Override o add-ons.</td>
+        <td><code>Await.result(...)</code></td>
+        <td><strong>Sincronización</strong></td>
+        <td>Bloquea el hilo actual hasta que el Future devuelva el valor (o pase el timeout de 5s).</td>
       </tr>
     </table>
   </section>
 
-  <section class="section" id="defensiva">
+  <section class="section" id="quiz">
     <div class="section-header">
-      <div class="eyebrow" style="color:var(--accent5)">16 · Calidad</div>
-      <h2>Programación Defensiva</h2>
+      <h2>Múltiple Choice Bosteril</h2>
     </div>
+    
+    <div class="quiz-container">
+      
+      <div class="question-block">
+        <div class="question-text">1. En Flask, `crear_usuario` es un hotspot: es el punto donde el desarrollador introduce la lógica específica de la app.</div>
+        <button class="options-btn" onclick="checkAnswer(true, true, 'Correcto. El hot spot es tu código, lo que vos customizás.')">Verdadero</button>
+        <button class="options-btn" onclick="checkAnswer(false, true, '¡Burro! El hotspot es justo la parte tuya, la que cambias.')">Falso</button>
+      </div>
 
-    <div class="callout warn">
-      <div class="callout-icon">🛡️</div>
-      <div class="callout-body">
-        <h4>Principio fundamental</h4>
-        <p>"Defend against the impossible, because the impossible will happen." — Principalmente causado por input de usuario, cambios en el entorno, y ataques de inyección de código.</p>
+      <div class="question-block">
+        <div class="question-text">2. En Flask, el desarrollador decide cuándo se llama a `crear_usuario` invocándolo explícitamente cuando llega la request.</div>
+        <button class="options-btn" onclick="checkAnswer(false, false, '¡No! Principio de Inversión de Control (IoC). El framework decide cuándo llamarlo.')">Verdadero</button>
+        <button class="options-btn" onclick="checkAnswer(true, false, 'Exacto. Por la Inversión de Control (IoC), el framework (Flask) es el que dispara la llamada, no vos.')">Falso</button>
       </div>
-    </div>
 
-    <div class="cards">
-      <div class="card">
-        <div class="card-tag" style="color:var(--accent5)">Errores esperables</div>
-        <h3>Del entorno</h3>
-        <p>Input de usuario inválido · Recursos del sistema agotados · Fallo de hardware. Son <em>previsibles</em>; deben manejarse.</p>
+      <div class="question-block">
+        <div class="question-text">3. El uso de múltiples `asserts` para validar tipos antes de ejecutar la lógica es un ejemplo de programación ofensiva.</div>
+        <button class="options-btn" onclick="checkAnswer(true, true, 'Bien. Falla rápido y crashea el programa si no se cumple el contrato. Eso es ofensivo.')">Verdadero</button>
+        <button class="options-btn" onclick="checkAnswer(false, true, 'Mal. Es ofensiva porque no intenta arreglar el error (como haría un try-catch), sino que explota al instante.')">Falso</button>
       </div>
-      <div class="card">
-        <div class="card-tag" style="color:var(--accent5)">Errores prevenibles</div>
-        <h3>Del software</h3>
-        <p>Argumentos de función inválidos · Valor fuera de rango · Valor de retorno no documentado. Son <em>bugs</em>; deben eliminarse.</p>
-      </div>
-      <div class="card">
-        <div class="card-tag" style="color:var(--accent5)">Técnicas</div>
-        <h3>Herramientas</h3>
-        <p>Reuso de software inteligente · Canonicalización de inputs · Guardas (<code>if (inesperado) throw</code>) · Validación con whitelist/blacklist.</p>
-      </div>
-    </div>
 
-    <h3 class="subsection">Software Legacy</h3>
-    <div class="callout warn">
-      <div class="callout-icon">⚰️</div>
-      <div class="callout-body">
-        <h4>Problemas del software heredado</h4>
-        <p>Diseñado para ASCII pero ahora recibe UTF-8 · Compilado para 32-bit pero ejecutado en 64-bit · Nunca tuvo conectividad de red, ahora sí · Vulnerable a code injection porque no era un problema conocido entonces.</p>
+      <div class="question-block">
+        <div class="question-text">4. En Prolog, para demostrar `equipo(elena, ana)`, el motor NO comprueba `departamento(ana, elena)`.</div>
+        <button class="options-btn" onclick="checkAnswer(true, true, '¡Claro! Evalúa de izquierda a derecha según las variables bindeadas, no comprueba la inversa a menos que lo pidas.')">Verdadero</button>
+        <button class="options-btn" onclick="checkAnswer(false, true, 'Pifiaste. Prolog es estricto con el orden de las variables. Revisa `X, Y`, no `Y, X` a menos que sea una regla aparte.')">Falso</button>
       </div>
-    </div>
 
-    <h3 class="subsection">Canonicalización</h3>
-    <div class="code-block">
-      <pre><span class="label">Ejemplo de ataque por no-canonicalización</span><span class="cm">// Si verificamos: ¿el archivo es "/etc/passwd"? → NO lo servimos</span>
-<span class="cm">// Un atacante puede enviar: "/etc/./passwd" o "/etc/../etc/passwd"</span>
-<span class="cm">// y eludir la verificación</span>
+      <div class="question-block" style="border:none;">
+        <div class="question-text">5. Usar `t.join()` en programación concurrente es un mecanismo de Exclusión Mutua.</div>
+        <button class="options-btn" onclick="checkAnswer(false, false, '¡No pibe! Es Sincronización. Exclusión mutua son los Mutex o Semáforos para proteger variables.')">Verdadero</button>
+        <button class="options-btn" onclick="checkAnswer(true, false, 'Perfecto. Join es Sincronización (esperar a que termine). Exclusión mutua es para proteger estados compartidos.')">Falso</button>
+      </div>
 
-<span class="cm">// Solución: canonicalizar el path ANTES de verificar</span>
-<span class="kw">import</span> os
-safe_path = os.path.<span class="fn">realpath</span>(user_input)
-<span class="kw">if</span> safe_path == <span class="str">"/etc/passwd"</span>:
-    <span class="fn">deny</span>()</pre>
-    </div>
-  </section>
-
-  <section class="section" id="glosario">
-    <div class="section-header">
-      <div class="eyebrow" style="color:var(--muted)">Referencia</div>
-      <h2>Glosario</h2>
-    </div>
-
-    <input type="text" class="glossary-search" placeholder="Filtrar términos..." oninput="filterGlossary(this.value)">
-
-    <div class="glossary-grid" id="glossaryGrid">
-      <div class="glossary-item" data-term="activation record">
-        <div class="glossary-term">Activation Record</div>
-        <div class="glossary-def">Estructura de datos en el stack de ejecución creada al entrar a un bloque. Contiene variables locales, control link, access link y dirección de retorno. También llamado <em>stack frame</em>.</div>
-      </div>
-      <div class="glossary-item" data-term="aliasing">
-        <div class="glossary-term">Aliasing</div>
-        <div class="glossary-def">Cuando dos identificadores distintos referencian la misma ubicación en memoria. Ocurre con pasaje por referencia de la misma variable o con punteros. Puede generar efectos secundarios inesperados.</div>
-      </div>
-      <div class="glossary-item" data-term="alcance estático léxico">
-        <div class="glossary-term">Alcance Estático (Léxico)</div>
-        <div class="glossary-def">Una variable libre se refiere al identificador del bloque contenedor más cercano en el texto del programa. Determinado en compilación. La mayoría de lenguajes modernos.</div>
-      </div>
-      <div class="glossary-item" data-term="alcance dinámico">
-        <div class="glossary-term">Alcance Dinámico</div>
-        <div class="glossary-def">Una variable libre se refiere al identificador del activation record más reciente en el stack en tiempo de ejecución. Lisp antiguo, Bash, TeX.</div>
-      </div>
-      <div class="glossary-item" data-term="access link">
-        <div class="glossary-term">Access Link</div>
-        <div class="glossary-def">Puntero dentro de un activation record que apunta al activation record del bloque contenedor en el texto del programa. Implementa el alcance estático. Distinto al control link.</div>
-      </div>
-      <div class="glossary-item" data-term="clausura closure">
-        <div class="glossary-term">Clausura (Closure)</div>
-        <div class="glossary-def">Valor de función en lenguajes con alcance estático y funciones de primera clase. Par de: puntero al código de la función + puntero al activation record de su entorno léxico.</div>
-      </div>
-      <div class="glossary-item" data-term="control link">
-        <div class="glossary-term">Control Link</div>
-        <div class="glossary-def">Puntero dentro de un activation record que apunta al activation record del bloque que realizó la llamada. Permite volver al código anterior al desapilar.</div>
-      </div>
-      <div class="glossary-item" data-term="call-by-value pasaje por valor">
-        <div class="glossary-term">Call-by-Value</div>
-        <div class="glossary-def">Se pasa el R-valor (contenido) del parámetro. Se crea una copia local en el AR de la función llamada. Asignaciones internas no afectan al bloque que llama. El más común.</div>
-      </div>
-      <div class="glossary-item" data-term="call-by-reference pasaje por referencia">
-        <div class="glossary-term">Call-by-Reference</div>
-        <div class="glossary-def">Se pasa el L-valor (dirección) del parámetro. La función puede modificar directamente la variable del bloque que llama. Genera aliasing. Perl por defecto.</div>
-      </div>
-      <div class="glossary-item" data-term="call-by-name pasaje por nombre">
-        <div class="glossary-term">Call-by-Name</div>
-        <div class="glossary-def">El argumento no se evalúa antes de la llamada. Se sustituye directamente en el cuerpo. Se re-evalúa cada vez que aparece. ALGOL 60, Scala.</div>
-      </div>
-      <div class="glossary-item" data-term="call-by-need pasaje por necesidad lazy">
-        <div class="glossary-term">Call-by-Need (Lazy)</div>
-        <div class="glossary-def">Versión memoizada de call-by-name. Se evalúa la primera vez que se usa y se almacena. Haskell. Evita recomputación y permite estructuras de datos infinitas.</div>
-      </div>
-      <div class="glossary-item" data-term="call-by-sharing objetos">
-        <div class="glossary-term">Call-by-Sharing</div>
-        <div class="glossary-def">Se pasa por valor una referencia a un objeto. Mutaciones del objeto son visibles en el llamador; reasignación de la variable no. Java, Python, Ruby, JavaScript.</div>
-      </div>
-      <div class="glossary-item" data-term="gramática ebnf libre de contexto">
-        <div class="glossary-term">Gramática Libre de Contexto (EBNF)</div>
-        <div class="glossary-def">Herramienta formal para describir la sintaxis de lenguajes. Estándar EBNF. No puede expresar restricciones como "variable declarada antes de usarse". El análisis semántico complementa.</div>
-      </div>
-      <div class="glossary-item" data-term="inversión de control ioc framework">
-        <div class="glossary-term">Inversión de Control (IoC)</div>
-        <div class="glossary-def">Principio de Hollywood: "No nos llame, nosotros lo llamaremos." El framework controla el flujo, no el programador. Diferencia clave entre framework y librería.</div>
-      </div>
-      <div class="glossary-item" data-term="l-valor r-valor lvalue rvalue">
-        <div class="glossary-term">L-valor / R-valor</div>
-        <div class="glossary-def">L-valor: ubicación en memoria (dirección) de la variable. R-valor: valor almacenado en esa ubicación. En ML, tienen tipos distintos. En C, el L-valor puede perderse sin advertencia.</div>
-      </div>
-      <div class="glossary-item" data-term="mvc model view controller">
-        <div class="glossary-term">MVC</div>
-        <div class="glossary-def">Model-View-Controller. Patrón arquitectónico para separar datos (Model), presentación (View) y lógica de interacción (Controller). Muy usado en frameworks web.</div>
-      </div>
-      <div class="glossary-item" data-term="polimorfismo">
-        <div class="glossary-term">Polimorfismo</div>
-        <div class="glossary-def">Una misma interfaz funciona para diferentes tipos. En OOP: despacho dinámico (late binding). El método llamado se determina en runtime según el tipo real del objeto.</div>
-      </div>
-      <div class="glossary-item" data-term="recursión cola tail call optimization tco">
-        <div class="glossary-term">Recursión de Cola (TCO)</div>
-        <div class="glossary-def">Una función es recursiva de cola si la llamada recursiva es la última operación. Los compiladores pueden reutilizar el AR, evitando stack overflow. Haskell, Scala, Scheme.</div>
-      </div>
-      <div class="glossary-item" data-term="semántica operacional">
-        <div class="glossary-term">Semántica Operacional</div>
-        <div class="glossary-def">Describe cómo cada paso de un cálculo se ejecuta en un modelo simplificado de la máquina. Define el significado de un programa como secuencias de pasos computacionales. La más usada en el curso.</div>
-      </div>
-      <div class="glossary-item" data-term="sintaxis semántica">
-        <div class="glossary-term">Sintaxis / Semántica</div>
-        <div class="glossary-def">Sintaxis: la <em>forma</em> del lenguaje (qué se puede escribir legalmente). Semántica: el <em>significado</em> (qué efectos tiene lo escrito). Todo lenguaje tiene ambas dimensiones.</div>
-      </div>
-      <div class="glossary-item" data-term="stack overflow pila">
-        <div class="glossary-term">Stack Overflow</div>
-        <div class="glossary-def">Error cuando el stack de ejecución se llena por demasiados activation records (recursión muy profunda sin TCO). Solucionado por compiladores que implementan Tail Call Optimization.</div>
-      </div>
-      <div class="glossary-item" data-term="church turing tesis">
-        <div class="glossary-term">Tesis de Church-Turing</div>
-        <div class="glossary-def">Las funciones computables son exactamente las calculables por un dispositivo mecánico con tiempo y espacio ilimitados. Cualquier función con algoritmo es computable. Formaliza la noción intuitiva de algoritmo.</div>
-      </div>
-      <div class="glossary-item" data-term="tipado estático dinámico fuerte débil duck">
-        <div class="glossary-term">Tipado (clasificación)</div>
-        <div class="glossary-def">Estático: tipos en compilación. Dinámico: tipos en runtime. Fuerte: sin conversiones implícitas inseguras. Débil: casteos automáticos. Duck typing: "si tiene el método, sirve".</div>
-      </div>
-      <div class="glossary-item" data-term="prolog programación lógica predicado">
-        <div class="glossary-term">Prolog / Programación Lógica</div>
-        <div class="glossary-def">La primitiva básica es la relación/predicado R(x,y), no la función F(x)=y. El motor de Prolog hace backtracking automático para encontrar todas las soluciones que satisfacen las reglas.</div>
-      </div>
     </div>
   </section>
 
 </main>
 
-<script>
-  // ─── PROGRESS BAR ───
-  window.addEventListener('scroll', () => {
-    const total = document.documentElement.scrollHeight - window.innerHeight;
-    const pct = (window.scrollY / total) * 100;
-    document.getElementById('progress').style.width = pct + '%';
-  });
+<div class="feedback-overlay" id="overlay" onclick="closeModal()"></div>
+<div class="feedback-modal" id="modal">
+  <h3 id="modal-title"></h3>
+  <img id="modal-img" src="" alt="Feedback">
+  <p id="modal-text" style="color:var(--text);"></p>
+  <button class="options-btn" style="margin-top:15px; width:100%;" onclick="closeModal()">Cerrar</button>
+</div>
 
-  // ─── SECTION SWITCHING ───
+<script>
+  // ─── NAV LOGIC ───
   const sections = document.querySelectorAll('.section');
   const navLinks = document.querySelectorAll('.nav-link');
 
   function showSection(id) {
     sections.forEach(s => s.classList.remove('visible'));
     navLinks.forEach(l => l.classList.remove('active'));
-    const target = document.getElementById(id);
-    if (target) {
-      target.classList.add('visible');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    document.getElementById(id).classList.add('visible');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    // Highlight sidebar
     document.querySelectorAll('.nav-link').forEach(l => {
       if (l.getAttribute('onclick')?.includes(id)) l.classList.add('active');
     });
-    // Close mobile sidebar
-    document.getElementById('sidebar').classList.remove('open');
   }
 
-  // Show first section by default
-  showSection('intro');
+  showSection('frameworks');
 
-  // ─── ACCORDION ───
-  function toggleAccordion(header) {
-    header.parentElement.classList.toggle('open');
-  }
+  // ─── QUIZ LOGIC (JANSON / CAVANI) ───
+  // URLs de Wikipedia Commons para que no se caigan.
+  const imgJanson = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Lucas_Janson_2023.jpg/400px-Lucas_Janson_2023.jpg";
+  const imgCavani = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Edinson_Cavani_2018.jpg/400px-Edinson_Cavani_2018.jpg";
 
-  // ─── GLOSSARY FILTER ───
-  function filterGlossary(query) {
-    const items = document.querySelectorAll('.glossary-item');
-    const q = query.toLowerCase();
-    items.forEach(item => {
-      const term = item.dataset.term || '';
-      const text = item.textContent.toLowerCase();
-      item.style.display = (term.includes(q) || text.includes(q)) ? '' : 'none';
-    });
-  }
+  function checkAnswer(isCorrect, expectedTrue, explanation) {
+    const modal = document.getElementById('modal');
+    const overlay = document.getElementById('overlay');
+    const title = document.getElementById('modal-title');
+    const img = document.getElementById('modal-img');
+    const text = document.getElementById('modal-text');
 
-  // ─── GLOBAL SEARCH ───
-  function handleGlobalSearch(query) {
-    if (!query) return;
-    const q = query.toLowerCase();
-    const map = {
-      'sintaxis': 'sintaxis', 'semántica': 'sintaxis', 'gramatica': 'sintaxis',
-      'ebnf': 'sintaxis', 'compilador': 'compilador', 'tipos': 'tipos',
-      'tipado': 'tipos', 'duck': 'tipos', 'bloque': 'bloques',
-      'activation': 'bloques', 'stack': 'bloques', 'parametro': 'parametros',
-      'valor': 'parametros', 'referencia': 'parametros', 'lazy': 'parametros',
-      'alcance': 'alcance', 'estático': 'alcance', 'dinámico': 'alcance',
-      'closure': 'altoorden', 'clausura': 'altoorden', 'orden': 'altoorden',
-      'funcional': 'funcional', 'imperativo': 'funcional',
-      'objeto': 'oop', 'herencia': 'oop', 'polimorfismo': 'oop',
-      'prolog': 'logico', 'lógico': 'logico', 'concurren': 'concurrencia',
-      'thread': 'concurrencia', 'scripting': 'scripting', 'python': 'scripting',
-      'perl': 'scripting', 'framework': 'frameworks', 'ioc': 'frameworks',
-      'mvc': 'frameworks', 'defensiva': 'defensiva', 'legacy': 'defensiva',
-      'glosario': 'glosario'
-    };
-    for (const [key, section] of Object.entries(map)) {
-      if (q.includes(key)) { showSection(section); return; }
+    if (isCorrect) {
+      title.innerText = "¡GOOOOOL! Respuesta Correcta";
+      title.style.color = "#4CAF50"; // Verde OK
+      img.src = imgJanson;
+    } else {
+      title.innerText = "¡UHHHH! La tiraste afuera";
+      title.style.color = "#F44336"; // Rojo Fail
+      img.src = imgCavani;
     }
+    
+    text.innerText = explanation;
+    
+    overlay.style.display = 'block';
+    modal.style.display = 'block';
   }
 
-  // ─── MOBILE SIDEBAR ───
-  function toggleSidebar() {
-    document.getElementById('sidebar').classList.toggle('open');
+  function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
   }
 </script>
 </body>
